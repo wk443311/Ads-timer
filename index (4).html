@@ -1,0 +1,408 @@
+<!DOCTYPE html>
+<html lang="bn">
+<head>
+	<meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Viral Video hub</title>
+  <style>
+    :root {
+      --primary: #00c853;
+      --secondary: #ff6d00;
+      --blue: #4285f4;
+      --dark: #121212;
+      --light: #f5f5f5;
+      --card-bg: #1f1f1f;
+      --disabled: #666;
+    }
+    body {
+      background: linear-gradient(135deg, var(--dark), #1a1a2e);
+      color: var(--light);
+      font-family: 'Segoe UI', sans-serif;
+      padding: 20px;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      min-height: 100vh;
+    }
+    .container {
+      background: var(--card-bg);
+      border-radius: 20px;
+      padding: 20px;
+      width: 100%;
+      max-width: 450px;
+      box-shadow: 0 0 20px rgba(0,0,0,0.5);
+    }
+    .profile-pic {
+      width: 100px;
+      height: 100px;
+      border-radius: 50%;
+      border: 3px solid var(--primary);
+      box-shadow: 0 0 10px rgba(0,0,0,0.3);
+      display: block;
+      margin: 0 auto 15px auto;
+    }
+    h1 {
+      text-align: center;
+      font-size: 22px;
+      margin-bottom: 20px;
+      background: linear-gradient(90deg, var(--primary), var(--secondary));
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+    }
+    .btn {
+      display: block;
+      width: 100%;
+      background: linear-gradient(45deg, var(--primary), var(--secondary));
+      border: none;
+      color: white;
+      padding: 14px;
+      margin: 10px 0;
+      font-size: 16px;
+      border-radius: 10px;
+      cursor: pointer;
+      transition: 0.3s;
+      position: relative;
+    }
+    .btn:hover {
+      transform: scale(1.03);
+    }
+    .website-section {
+      text-align: center;
+      margin-top: 30px;
+    }
+    .website-section h3 {
+      margin-bottom: 10px;
+      color: var(--blue);
+    }
+    .links-container {
+      margin-top: 10px;
+      display: none;
+    }
+    .link-item {
+      background: rgba(255,255,255,0.1);
+      padding: 10px;
+      margin: 5px 0;
+      border-radius: 5px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+    .link-text {
+      font-size: 14px;
+      color: #ddd;
+    }
+    .link-btn {
+      background: var(--blue);
+      border: none;
+      color: white;
+      padding: 5px 10px;
+      border-radius: 3px;
+      cursor: pointer;
+      font-size: 12px;
+    }
+    .link-btn:disabled {
+      background: var(--disabled);
+      cursor: not-allowed;
+    }
+    .countdown {
+      font-size: 12px;
+      color: var(--secondary);
+      margin-top: 5px;
+      text-align: center;
+    }
+    .warning {
+      color: #ff5252;
+      font-size: 12px;
+      text-align: center;
+      margin-top: 5px;
+      display: none;
+    }
+    .edit-title {
+      background: rgba(255,255,255,0.1);
+      border: 1px solid var(--primary);
+      color: white;
+      padding: 5px;
+      border-radius: 5px;
+      width: 100%;
+      text-align: center;
+      margin-bottom: 10px;
+    }
+    .progress-bar {
+      height: 5px;
+      background: #333;
+      border-radius: 5px;
+      margin-top: 5px;
+      overflow: hidden;
+    }
+    .progress {
+      height: 100%;
+      background: linear-gradient(90deg, var(--primary), var(--secondary));
+      width: 0%;
+      transition: width 0.3s;
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <!-- ✅ প্রোফাইল ছবি -->
+    <img class="profile-pic" src="1Gb0nfJg/IMG-20250629-082152-137.jpg" alt="Profile Picture">
+    <!-- Editable Title -->
+    <input type="text" class="edit-title" id="mainTitle" value="২ টি করে এড দেখে চ্যানেল এ জয়েন করুন লাইফ টাইম বিডিও পাবেন" onchange="updateTitle(this.value)">
+    <div class="button-container">
+      <!-- Button 1 -->
+      <div class="button-item">
+        <input type="text" class="edit-title" value="বাংলা বিডিও চ্যানেল 🥵" onchange="updateButtonTitle(0, this.value)">
+        <button class="btn" onclick="handleButtonClick(0)">১৫ সেকেন্ডের ২ টি এড দেখে চ্যানেল এ জয়েন করুন</button>
+        <div class="links-container" id="links-0">
+          <div class="link-item">
+            <span class="link-text">এড ১ (১৫ সেকেন্ড দেখুন)</span>
+            <button class="link-btn" onclick="showAd(0, 1, 'https://otieu.com/4/9429975')">দেখুন</button>
+          </div>
+          <div class="link-item">
+            <span class="link-text">এড ২ (১৫ সেকেন্ড দেখুন )</span>
+            <button class="link-btn" id="ad2-btn-0" onclick="showAd(0, 2, 'https://wwp.aistiw.com/redirect-zone/23df490e')" disabled>দেখুন</button>
+          </div>
+          <div class="link-item">
+            <span class="link-text">টেলিগ্রাম চ্যানেলে যান</span>
+            <button class="link-btn" id="telegram-btn-0" onclick="openLink('https://telegramxo.blogspot.com/2025/09/22.html')" disabled>যান</button>
+          </div>
+        </div>
+        <div class="progress-bar">
+          <div class="progress" id="progress-0"></div>
+        </div>
+        <div class="countdown" id="countdown-0"></div>
+        <div class="warning" id="warning-0">আপনি ১৫ সেকেন্ড দেখেননি।</div>
+      </div>
+      <!-- Button 2 -->
+      <div class="button-item">
+        <input type="text" class="edit-title" value="রাশিয়ান বিডিও চ্যানেল" onchange="updateButtonTitle(1, this.value)">
+        <button class="btn" onclick="handleButtonClick(1)">১৫ সেকেন্ডের ২ টি এড দেখে চ্যানেল যয়েন করুন 😊</button>
+        <div class="links-container" id="links-1">
+          <div class="link-item">
+            <span class="link-text">এড ১ (১৫ সেকেন্ড দেখুন )</span>
+            <button class="link-btn" onclick="showAd(1, 1, 'https://otieu.com/4/9429981')">দেখুন</button>
+          </div>
+          <div class="link-item">
+            <span class="link-text">এড ২ (১৫ সেকেন্ড দেখুন)</span>
+            <button class="link-btn" id="ad2-btn-1" onclick="showAd(1, 2, 'https://wwp.aistiw.com/redirect-zone/07d468f7')" disabled>দেখুন</button>
+          </div>
+          <div class="link-item">
+            <span class="link-text">টেলিগ্রাম চ্যানেলে যান</span>
+            <button class="link-btn" id="telegram-btn-1" onclick="openLink('https://telegramxo.blogspot.com/2025/09/blog-post.html')" disabled>যান</button>
+          </div>
+        </div>
+        <div class="progress-bar">
+          <div class="progress" id="progress-1"></div>
+        </div>
+        <div class="countdown" id="countdown-1"></div>
+        <div class="warning" id="warning-1">আপনি ১৫ সেকেন্ড দেখেননি।</div>
+      </div>
+      <!-- Button 3 -->
+      <div class="button-item">
+        <input type="text" class="edit-title" value="বাচ্চাদের ভিডিও চ্যানেল 🔥" onchange="updateButtonTitle(2, this.value)">
+        <button class="btn" onclick="handleButtonClick(2)">১৫ সেকেন্ডের ২ টি এড দেখুন এবং চ্যানেলে জয়েন করুন 😊</button>
+        <div class="links-container" id="links-2">
+          <div class="link-item">
+            <span class="link-text">এড ১ (১৫ সেকেন্ড দেখুন)</span>
+            <button class="link-btn" onclick="showAd(2, 1, 'https://www.revenuecpmgate.com/pba8ge12?key=cd4ca9b56557072d7f74f5d1a1edb3c2')">দেখুন</button>
+          </div>
+          <div class="link-item">
+            <span class="link-text">এড ২ (১৫ সেকেন্ড দেখুন)</span>
+            <button class="link-btn" id="ad2-btn-2" onclick="showAd(2, 2, 'https://www.revenuecpmgate.com/hbfh3tsx?key=69d41201781e1eef842f24d3158e6b9c')" disabled>দেখুন</button>
+          </div>
+          <div class="link-item">
+            <span class="link-text">টেলিগ্রাম চ্যানেলে যান</span>
+            <button class="link-btn" id="telegram-btn-2" onclick="openLink('https://telegramxo.blogspot.com/2025/09/blog-post_1.html')" disabled>যান</button>
+          </div>
+        </div>
+        <div class="progress-bar">
+          <div class="progress" id="progress-2"></div>
+        </div>
+        <div class="countdown" id="countdown-2"></div>
+        <div class="warning" id="warning-2">আপনি ১৫ সেকেন্ড দেখেননি।</div>
+      </div>
+      <!-- Button 4 -->
+      <div class="button-item">
+        <input type="text" class="edit-title" value="সেলিব্রেটি বিডিও চ্যানেল 🥵" onchange="updateButtonTitle(3, this.value)">
+        <button class="btn" onclick="handleButtonClick(3)">১৫ সেকেন্ডের ২ টি এড দেখে লাইফটাইম এক্সেস পান🫠</button>
+        <div class="links-container" id="links-3">
+          <div class="link-item">
+            <span class="link-text">এড ১ (১৫ সেকেন্ড দেখুন)</span>
+            <button class="link-btn" onclick="showAd(3, 1, 'https://otieu.com/4/9837487')">দেখুন</button>
+          </div>
+          <div class="link-item">
+            <span class="link-text">এড ২ (১৫ সেকেন্ড দেখুন )</span>
+            <button class="link-btn" id="ad2-btn-3" onclick="showAd(3, 2, 'https://otieu.com/4/9725607')" disabled>দেখুন</button>
+          </div>
+          <div class="link-item">
+            <span class="link-text">টেলিগ্রাম চ্যানেল</span>
+            <button class="link-btn" id="telegram-btn-3" onclick="openLink('https://telegramxo.blogspot.com')" disabled>যান</button>
+          </div>
+        </div>
+        <div class="progress-bar">
+          <div class="progress" id="progress-3"></div>
+        </div>
+        <div class="countdown" id="countdown-3"></div>
+        <div class="warning" id="warning-3">আপনি ১৫ সেকেন্ড দেখেননি।</div>
+      </div>
+      <!-- Button 5 -->
+      <div class="button-item">
+        <input type="text" class="edit-title" value="আজকের ভাইরাল আপডেট বিডিও চ্যানেল 🥵" onchange="updateButtonTitle(4, this.value)">
+        <button class="btn" onclick="handleButtonClick(4)">১৫ সেকেন্ডের ২ টি এড দেখুন আর টেলিগ্রাম চ্যানেলে জয়েন করুন 🔥</button>
+        <div class="links-container" id="links-4">
+          <div class="link-item">
+            <span class="link-text">এড ১ (১৫ সেকেন্ড দেখুন)</span>
+            <button class="link-btn" onclick="showAd(4, 1, 'https://undergrounddressedposition.com/edrcgddu?key=e35d5a057989a7c467797f2a0ba929e0')">দেখুন</button>
+          </div>
+          <div class="link-item">
+            <span class="link-text">এড ২ (১৫ সেকেন্ড দেখুন)</span>
+            <button class="link-btn" id="ad2-btn-4" onclick="showAd(4, 2, 'https://undergrounddressedposition.com/vfrywxa0s2?key=ea8e2b2e25ca4947df310feb37d6479f')" disabled>দেখুন</button>
+          </div>
+          <div class="link-item">
+            <span class="link-text">টেলিগ্রাম চ্যানেল যান</span>
+            <button class="link-btn" id="telegram-btn-4" onclick="openLink('https://telegramxo.blogspot.com/2025/09/blog-post_4.html')" disabled>যান</button>
+          </div>
+        </div>
+        <div class="progress-bar">
+          <div class="progress" id="progress-4"></div>
+        </div>
+        <div class="countdown" id="countdown-4"></div>
+        <div class="warning" id="warning-4">আপনি ১৫ সেকেন্ড দেখেননি।</div>
+      </div>
+    </div>
+    <div class="website-section">
+      <h3>আরো ইন্টারেস্টিং ভিডিও দেখতে আমাদের ওয়েবসাইটে যান</h3>
+      <button class="btn" onclick="openLink('https://telegramxo.blogspot.com')">ভিজিট ওয়েবসাইট</button>
+    </div>
+  </div>
+  <script>
+    // User progress tracking
+    const userProgress = Array(5).fill().map(() => ({
+      step: 0, // 0: not started, 1: first ad completed, 2: second ad completed
+      ad1Completed: false,
+      ad2Completed: false,
+      ad1StartTime: 0,
+      ad2StartTime: 0
+    }));
+    // Function to open links
+    function openLink(url) {
+      window.open(url, '_blank');
+    }
+    // Function to update main title
+    function updateTitle(newTitle) {
+      document.querySelector('h1').textContent = newTitle;
+    }
+    // Function to update button title
+    function updateButtonTitle(buttonIndex, newTitle) {
+      const buttons = document.querySelectorAll('.btn');
+      buttons[buttonIndex].textContent = newTitle;
+    }
+    // Function to handle button click
+    function handleButtonClick(buttonIndex) {
+      const linksContainer = document.getElementById(`links-${buttonIndex}`);
+      const progress = userProgress[buttonIndex];
+      // Show links container if not already shown
+      if (linksContainer.style.display !== 'block') {
+        linksContainer.style.display = 'block';
+      }
+      // If user hasn't started, show first ad
+      if (progress.step === 0) {
+        showAd(buttonIndex, 1, 'https://otieu.com/4/9717825');
+      }
+      // If first ad is completed but second not started, show second ad
+      else if (progress.step === 1) {
+        showAd(buttonIndex, 2, 'https://otieu.com/4/9429975');
+      }
+      // If both ads are completed, show Telegram channel
+      else if (progress.step === 2) {
+        openLink('https://t.me/example');
+      }
+    }
+    // Function to show ad with countdown
+    function showAd(buttonIndex, adNumber, adLink) {
+      const progress = userProgress[buttonIndex];
+      const countdownElement = document.getElementById(`countdown-${buttonIndex}`);
+      const warningElement = document.getElementById(`warning-${buttonIndex}`);
+      const progressBar = document.getElementById(`progress-${buttonIndex}`);
+      // Hide warning if shown
+      warningElement.style.display = 'none';
+      // Record start time
+      if (adNumber === 1) {
+        progress.ad1StartTime = Date.now();
+      } else {
+        progress.ad2StartTime = Date.now();
+      }
+      // Open ad link in new tab
+      const adTab = window.open(adLink, '_blank');
+      // Start countdown
+      let secondsLeft = 15;
+      countdownElement.textContent = `অ্যাড দেখার জন্য ${secondsLeft} সেকেন্ড বাকি`;
+      progressBar.style.width = '0%';
+      const countdownInterval = setInterval(() => {
+        secondsLeft--;
+        countdownElement.textContent = `অ্যাড দেখার জন্য ${secondsLeft} সেকেন্ড বাকি`;
+        // Update progress bar
+        const progressPercent = ((15 - secondsLeft) / 15) * 100;
+        progressBar.style.width = `${progressPercent}%`;
+        if (secondsLeft <= 0) {
+          clearInterval(countdownInterval);
+          countdownElement.textContent = '';
+          progressBar.style.width = '100%';
+          // Mark ad as completed
+          if (adNumber === 1) {
+            progress.ad1Completed = true;
+            progress.step = 1;
+            // Enable second ad button
+            document.getElementById(`ad2-btn-${buttonIndex}`).disabled = false;
+          } else {
+            progress.ad2Completed = true;
+            progress.step = 2;
+            // Enable Telegram button
+            document.getElementById(`telegram-btn-${buttonIndex}`).disabled = false;
+          }
+          // Close the ad tab after completion
+          if (adTab && !adTab.closed) {
+            setTimeout(() => {
+              try {
+                adTab.close();
+              } catch (e) {
+                console.log("Could not close ad tab");
+              }
+            }, 1000);
+          }
+        }
+      }, 1000);
+      // Set up a check for early return
+      const checkInterval = setInterval(() => {
+        // Check if the ad tab is closed
+        if (adTab.closed) {
+          const currentTime = Date.now();
+          const startTime = adNumber === 1 ? progress.ad1StartTime : progress.ad2StartTime;
+          const timeSpent = (currentTime - startTime) / 1000;
+          if (timeSpent < 15) {
+            warningElement.style.display = 'block';
+            clearInterval(countdownInterval);
+            clearInterval(checkInterval);
+            countdownElement.textContent = '';
+            progressBar.style.width = '0%';
+            // Reset progress for this ad
+            if (adNumber === 1) {
+              progress.ad1Completed = false;
+              progress.step = 0;
+            } else {
+              progress.ad2Completed = false;
+              progress.step = 1;
+            }
+          } else {
+            clearInterval(checkInterval);
+          }
+        }
+      }, 500);
+    }
+    // Remove auto-ad on page load
+    window.onload = function() {
+      // No auto-ad on load
+    };
+  </script>
+<center><font size="2">This is the free demo result. For a full version of this website, please go to  <a href="https://www6.waybackmachinedownloader.com/website-downloader-online/scrape-all-files/">Website Downloader</a></font></center></body>
+</html>
