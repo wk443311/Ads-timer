@@ -2,13 +2,13 @@
 <html lang="bn">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, viewport-fit=cover">
-    <title>💰 অ্যাড ভিউ আয় | Adsgram + Telegram Mini App</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=yes, viewport-fit=cover">
+    <title>ভিডিও পোর্টাল - টেলিগ্রাম মিনি অ্যাপ</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
     
-    <!-- Telegram WebApp Script -->
+    <!-- ======================= টেলিগ্রাম ওয়েব অ্যাপ SDK ======================= -->
     <script src="https://telegram.org/js/telegram-web-app.js"></script>
-    
-    <!-- Adsgram SDK -->
+    <!-- ======================= এডসগ্রাম SDK ======================= -->
     <script src="https://sad.adsgram.ai/js/sad.min.js"></script>
     
     <style>
@@ -16,723 +16,753 @@
             margin: 0;
             padding: 0;
             box-sizing: border-box;
-            font-family: 'Segoe UI', system-ui, -apple-system, sans-serif;
+            font-family: 'Segoe UI', -apple-system, BlinkMacSystemFont, 'Roboto', sans-serif;
         }
 
         body {
-            background: linear-gradient(135deg, #0f172a, #1e1b4b);
+            background: linear-gradient(145deg, #0a0f1e 0%, #0c1222 100%);
+            padding: 1rem;
+            color: #f0f3fa;
             min-height: 100vh;
-            padding: 20px;
-            color: #f1f5f9;
         }
 
         .container {
-            max-width: 500px;
+            max-width: 600px;
             margin: 0 auto;
-        }
-
-        /* ব্যালেন্স কার্ড */
-        .balance-card {
-            background: linear-gradient(135deg, #f59e0b, #d97706);
-            border-radius: 32px;
-            padding: 24px 20px;
-            text-align: center;
-            margin-bottom: 24px;
-            box-shadow: 0 20px 35px -10px rgba(0,0,0,0.3);
-        }
-
-        .balance-label {
-            font-size: 14px;
-            letter-spacing: 2px;
-            opacity: 0.9;
-        }
-
-        .balance-amount {
-            font-size: 48px;
-            font-weight: 800;
-            margin: 8px 0;
-            color: white;
-            text-shadow: 0 2px 5px rgba(0,0,0,0.2);
-        }
-
-        .per-view {
-            background: rgba(0,0,0,0.3);
-            display: inline-block;
-            padding: 6px 16px;
-            border-radius: 40px;
-            font-size: 12px;
-            font-weight: 600;
-        }
-
-        /* এড দেখার বাটন */
-        .watch-ad-btn {
-            background: linear-gradient(135deg, #ec489a, #be185d);
-            border: none;
             width: 100%;
-            padding: 22px;
-            border-radius: 40px;
-            color: white;
-            font-size: 22px;
-            font-weight: 800;
-            cursor: pointer;
-            transition: all 0.2s ease;
-            margin-bottom: 16px;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            gap: 12px;
-            box-shadow: 0 10px 25px -5px rgba(236,72,153,0.4);
         }
 
-        .watch-ad-btn:active {
-            transform: scale(0.97);
+        .slider-section {
+            margin-bottom: 2rem;
+            background: rgba(0, 0, 0, 0.35);
+            border-radius: 1.5rem;
+            padding: 1rem 0.75rem;
+            backdrop-filter: blur(2px);
+            box-shadow: 0 10px 25px -8px rgba(0,0,0,0.5);
         }
 
-        .watch-ad-btn:disabled {
-            opacity: 0.6;
-            transform: none;
-            cursor: not-allowed;
-        }
-
-        /* সেকেন্ডারি বাটন */
-        .secondary-btn {
-            background: rgba(255,255,255,0.1);
-            border: 1px solid rgba(255,255,255,0.2);
-            width: 100%;
-            padding: 14px;
-            border-radius: 40px;
-            color: white;
+        .section-title {
+            font-size: 1.4rem;
             font-weight: 600;
-            cursor: pointer;
-            margin-bottom: 12px;
-            transition: 0.2s;
-        }
-
-        .secondary-btn:active {
-            background: rgba(255,255,255,0.2);
-        }
-
-        /* উইথড্র মডাল */
-        .modal {
-            position: fixed;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            background: rgba(0,0,0,0.8);
-            backdrop-filter: blur(8px);
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            z-index: 2000;
-        }
-
-        .modal-content {
-            background: linear-gradient(135deg, #1e293b, #0f172a);
-            border-radius: 32px;
-            padding: 28px;
-            width: 90%;
-            max-width: 380px;
-            border: 1px solid rgba(255,255,255,0.2);
-        }
-
-        .modal-content h3 {
-            font-size: 24px;
-            margin-bottom: 16px;
-            text-align: center;
-        }
-
-        .modal-content input, .modal-content select {
-            width: 100%;
-            padding: 14px;
-            margin: 10px 0;
-            border-radius: 60px;
-            border: none;
-            background: rgba(255,255,255,0.1);
-            color: white;
-            font-size: 16px;
-        }
-
-        .modal-content input::placeholder {
-            color: rgba(255,255,255,0.5);
-        }
-
-        .modal-buttons {
-            display: flex;
-            gap: 12px;
-            margin-top: 20px;
-        }
-
-        .modal-buttons button {
-            flex: 1;
-            padding: 12px;
-            border-radius: 40px;
-            border: none;
-            font-weight: 600;
-            cursor: pointer;
-        }
-
-        .confirm-btn {
-            background: #10b981;
-            color: white;
-        }
-
-        .cancel-btn {
-            background: #ef4444;
-            color: white;
-        }
-
-        /* ইতিহাস সেকশন */
-        .history-section {
-            background: rgba(255,255,255,0.08);
-            border-radius: 28px;
-            padding: 20px;
-            margin-top: 24px;
-            backdrop-filter: blur(10px);
-        }
-
-        .history-title {
-            font-size: 18px;
-            font-weight: 600;
-            margin-bottom: 12px;
+            margin-bottom: 1rem;
+            padding-left: 0.5rem;
+            border-left: 5px solid #ff6a3d;
             display: flex;
             align-items: center;
             gap: 8px;
         }
 
-        .history-list {
-            max-height: 250px;
-            overflow-y: auto;
+        .section-title i {
+            color: #ff6a3d;
         }
 
-        .history-item {
-            padding: 10px 0;
-            border-bottom: 1px solid rgba(255,255,255,0.1);
-            font-size: 13px;
+        .carousel-container {
+            position: relative;
+            width: 100%;
+            overflow: hidden;
+            border-radius: 1.2rem;
+            background: #00000055;
+            box-shadow: 0 8px 20px rgba(0,0,0,0.4);
+        }
+
+        .carousel-track {
             display: flex;
-            justify-content: space-between;
+            transition: transform 0.4s ease-in-out;
         }
 
-        .pending {
-            color: #fbbf24;
+        .carousel-slide {
+            flex: 0 0 100%;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            padding: 0.5rem;
         }
 
-        .approved {
-            color: #10b981;
+        .thumb-video-card {
+            background: #11161f;
+            border-radius: 1.2rem;
+            overflow: hidden;
+            width: 100%;
+            max-width: 100%;
+            margin: 0 auto;
+            box-shadow: 0 6px 15px rgba(0,0,0,0.4);
         }
 
-        .rejected {
-            color: #ef4444;
+        .thumb-wrapper {
+            position: relative;
+            width: 100%;
+            aspect-ratio: 16 / 9;
+            overflow: hidden;
+            background: #0a0e16;
+            cursor: pointer;
         }
 
-        .loading-overlay {
-            position: fixed;
+        .thumb-img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            display: block;
+            transition: transform 0.3s ease;
+        }
+
+        .play-overlay {
+            position: absolute;
             top: 0;
             left: 0;
             width: 100%;
             height: 100%;
-            background: #0f172a;
+            background: rgba(0,0,0,0.3);
             display: flex;
             align-items: center;
             justify-content: center;
-            z-index: 1000;
-            flex-direction: column;
-            gap: 16px;
+            transition: all 0.3s ease;
+            cursor: pointer;
         }
 
-        .spinner {
-            width: 50px;
-            height: 50px;
-            border: 4px solid rgba(255,255,255,0.2);
-            border-top-color: #ec489a;
-            border-radius: 50%;
-            animation: spin 1s linear infinite;
-        }
-
-        @keyframes spin {
-            to { transform: rotate(360deg); }
-        }
-
-        .toast-msg {
-            position: fixed;
-            bottom: 30px;
-            left: 20px;
-            right: 20px;
-            background: #1e293b;
+        .play-overlay i {
+            font-size: 3.5rem;
             color: white;
-            text-align: center;
-            padding: 12px;
-            border-radius: 60px;
-            font-size: 14px;
-            z-index: 1100;
-            transition: 0.3s;
-            box-shadow: 0 5px 20px rgba(0,0,0,0.3);
+            text-shadow: 0 2px 8px rgba(0,0,0,0.5);
+            transition: transform 0.2s ease;
         }
 
-        .hidden {
-            display: none;
+        .play-overlay:hover i {
+            transform: scale(1.1);
+            color: #ff6a3d;
         }
 
-        .stat-row {
-            display: flex;
-            justify-content: space-between;
-            margin-top: 16px;
-            font-size: 13px;
-            color: #cbd5e1;
+        .thumb-wrapper:hover .thumb-img {
+            transform: scale(1.02);
         }
 
-        .badge {
-            background: #f59e0b;
-            padding: 4px 12px;
-            border-radius: 60px;
-            font-size: 11px;
+        .card-info {
+            padding: 1rem;
+        }
+
+        .video-title {
+            font-size: 1rem;
             font-weight: 600;
+            margin-bottom: 0.8rem;
+            word-break: break-word;
+            line-height: 1.4;
+        }
+
+        .button-group {
+            display: flex;
+            gap: 0.75rem;
+            flex-wrap: wrap;
+        }
+
+        .btn {
+            flex: 1;
+            padding: 0.6rem 0.5rem;
+            border: none;
+            border-radius: 2rem;
+            font-weight: 600;
+            font-size: 0.8rem;
+            cursor: pointer;
+            transition: 0.2s;
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            gap: 6px;
+        }
+
+        .btn-download {
+            background: #2c3e66;
+            color: white;
+            border: 1px solid #3e5a8f;
+        }
+
+        .btn-watch {
+            background: #ff6a3d;
+            color: white;
+            border: none;
+        }
+
+        .btn.locked-btn {
+            background: #4a4f5e;
+            cursor: pointer;
+            opacity: 0.7;
+            border: 1px solid #6c757d;
+            position: relative;
+        }
+
+        .btn.locked-btn:hover {
+            opacity: 0.9;
+        }
+
+        .btn.locked-btn::after {
+            content: "🔒";
+            margin-left: 5px;
+            font-size: 0.7rem;
+        }
+
+        .btn.unlocked-btn {
+            background: #2ecc71;
+            opacity: 1;
+        }
+
+        .carousel-dots {
+            display: flex;
+            justify-content: center;
+            gap: 8px;
+            margin-top: 1rem;
+        }
+
+        .dot {
+            width: 30px;
+            height: 4px;
+            background: #4b5563;
+            border-radius: 10px;
+            cursor: pointer;
+            transition: 0.2s;
+        }
+
+        .dot.active {
+            background: #ff6a3d;
+            width: 40px;
+        }
+
+        .thumbnails-grid {
+            margin-top: 1.5rem;
+        }
+
+        .grid-title {
+            font-size: 1.4rem;
+            margin-bottom: 1.2rem;
+            font-weight: 600;
+            border-left: 5px solid #ff6a3d;
+            padding-left: 1rem;
+        }
+
+        .grid-container {
+            display: flex;
+            flex-direction: column;
+            gap: 1.2rem;
+        }
+
+        .video-card {
+            background: #11161fe6;
+            border-radius: 1.2rem;
+            overflow: hidden;
+            transition: all 0.25s ease;
+            box-shadow: 0 6px 14px rgba(0,0,0,0.3);
+        }
+
+        .card-body {
+            padding: 0.9rem 1rem 1rem;
+        }
+
+        .card-title {
+            font-size: 1rem;
+            font-weight: 600;
+            margin-bottom: 0.8rem;
+            line-height: 1.4;
+        }
+
+        .btn-group {
+            display: flex;
+            gap: 0.75rem;
+        }
+
+        .professional-footer {
+            margin-top: 2.5rem;
+            background: #0c1120cc;
+            backdrop-filter: blur(8px);
+            border-radius: 1.2rem;
+            padding: 1rem 1.2rem;
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: space-between;
+            align-items: center;
+            gap: 0.8rem;
+            border-top: 1px solid #2a334a;
+        }
+
+        .copyright {
+            font-size: 0.7rem;
+            opacity: 0.8;
+        }
+
+        .footer-buttons {
+            display: flex;
+            gap: 0.8rem;
+        }
+
+        .footer-btn {
+            background: none;
+            border: none;
+            color: #ffb347;
+            font-size: 0.75rem;
+            cursor: pointer;
+            font-weight: 500;
+            transition: 0.2s;
+            padding: 0.3rem 0.6rem;
+            border-radius: 1.5rem;
+        }
+
+        .footer-btn:hover {
+            background: #ff6a3d20;
+        }
+
+        .modal {
+            display: none;
+            position: fixed;
+            top: 0; left: 0;
+            width: 100%; height: 100%;
+            background-color: rgba(0,0,0,0.9);
+            backdrop-filter: blur(8px);
+            z-index: 1000;
+            justify-content: center;
+            align-items: center;
+            padding: 1rem;
+        }
+
+        .modal-content {
+            background: #12172ae6;
+            max-width: 400px;
+            width: 100%;
+            padding: 1.5rem;
+            border-radius: 1.5rem;
+            border: 1px solid #ffaa55;
+            color: #f0f3fa;
+        }
+
+        .modal-content h3 {
+            font-size: 1.5rem;
+            margin-bottom: 1rem;
+            color: #ffaa66;
+        }
+
+        .modal-content p {
+            line-height: 1.5;
+            margin-bottom: 1rem;
+            font-size: 0.9rem;
+        }
+
+        .close-modal {
+            background: #ff6a3d;
+            border: none;
+            padding: 0.5rem 1.2rem;
+            border-radius: 2rem;
+            color: white;
+            font-weight: bold;
+            cursor: pointer;
+            margin-top: 0.8rem;
+        }
+
+        button, .btn, .dot, .footer-btn {
+            touch-action: manipulation;
         }
     </style>
 </head>
 <body>
-    <div class="loading-overlay" id="loadingOverlay">
-        <div class="spinner"></div>
-        <div>🔞 লোড হচ্ছে...</div>
+<div class="container">
+    <div class="slider-section">
+        <div class="section-title">
+            <i class="fas fa-film"></i> ট্রেন্ডিং ভিডিও
+        </div>
+        <div class="carousel-container">
+            <div class="carousel-track" id="carouselTrack"></div>
+        </div>
+        <div class="carousel-dots" id="carouselDots"></div>
+        <p style="font-size:0.7rem; margin-top:10px; text-align:center; opacity:0.7;">
+            <i class="fas fa-lock"></i> প্রতিটি বাটন আলাদাভাবে আনলক করতে হবে। বাটনে ক্লিক করে বিজ্ঞাপন দেখুন।
+        </p>
     </div>
 
-    <div class="container hidden" id="mainContent">
-        <!-- ব্যালেন্স কার্ড -->
-        <div class="balance-card">
-            <div class="balance-label">💰 আপনার মোট আয় (USD)</div>
-            <div class="balance-amount" id="balanceAmount">0.0000</div>
-            <div class="per-view">🎬 প্রতি অ্যাড ভিউ = $0.002</div>
-        </div>
-
-        <!-- প্রধান অ্যাড দেখার বাটন -->
-        <button class="watch-ad-btn" id="watchRewardedBtn">
-            ▶️ অ্যাড দেখে আয় করুন
-        </button>
-
-        <!-- ডেইলি বোনাস ও উইথড্র -->
-        <button class="secondary-btn" id="dailyBonusBtn">
-            🎁 ডেইলি বোনাস ($0.05)
-        </button>
-        <button class="secondary-btn" id="withdrawBtn" style="background:#10b981; border:none;">
-            💸 উইথড্র করুন (ন্যূনতম $1.00)
-        </button>
-
-        <div class="stat-row">
-            <span>📊 মোট অ্যাড ভিউ: <span id="totalViews">0</span></span>
-            <span>⏱ কুলডাউন: <span id="cooldownTimer">প্রস্তুত</span></span>
-        </div>
-
-        <!-- পেন্ডিং উইথড্র -->
-        <div class="history-section" style="margin-top: 16px;">
-            <div class="history-title">
-                ⏳ পেন্ডিং উইথড্র রিকোয়েস্ট
-            </div>
-            <div id="pendingWithdrawList">
-                <div class="history-item">কোনো পেন্ডিং রিকোয়েস্ট নেই</div>
-            </div>
-        </div>
-
-        <!-- ইতিহাস -->
-        <div class="history-section">
-            <div class="history-title">
-                📜 লেনদেন ইতিহাস
-            </div>
-            <div class="history-list" id="historyList">
-                <div class="history-item">✨ স্বাগতম! অ্যাড দেখে আয় শুরু করুন</div>
-            </div>
-        </div>
-
-        <div style="text-align: center; font-size: 11px; margin-top: 20px; opacity:0.6;">
-            Adsgram Powered • Telegram Mini App
-        </div>
+    <div class="thumbnails-grid">
+        <div class="grid-title"><i class="fas fa-th-large"></i> Premium HUB</div>
+        <div class="grid-container" id="videoGridContainer"></div>
     </div>
+</div>
 
-    <!-- উইথড্র মডাল -->
-    <div id="withdrawModal" class="modal hidden">
-        <div class="modal-content">
-            <h3>💸 উইথড্র করুন</h3>
-            <p style="text-align: center; margin-bottom: 16px;">আপনার ব্যালেন্স: <strong id="modalBalance">$0.00</strong></p>
-            <input type="text" id="withdrawAmount" placeholder="উইথড্র পরিমাণ (USD)" inputmode="decimal">
-            <select id="paymentMethod">
-                <option value="Bkash">বিকাশ (Bkash)</option>
-                <option value="Nagad">নগদ (Nagad)</option>
-                <option value="Rocket">রকেট (Rocket)</option>
-                <option value="PayPal">PayPal</option>
-            </select>
-            <input type="text" id="paymentAccount" placeholder="পেমেন্ট অ্যাকাউন্ট নম্বর/ইমেইল">
-            <div class="modal-buttons">
-                <button class="confirm-btn" id="confirmWithdraw">কনফার্ম</button>
-                <button class="cancel-btn" id="cancelWithdraw">বাতিল</button>
-            </div>
-        </div>
+<footer class="professional-footer">
+    <div class="copyright"><i class="far fa-copyright"></i> ২০২৬ ভিডিও পোর্টাল</div>
+    <div class="footer-buttons">
+        <button class="footer-btn" id="privacyBtn"><i class="fas fa-shield-alt"></i> প্রাইভেসি</button>
+        <button class="footer-btn" id="aboutBtn"><i class="fas fa-info-circle"></i> সম্পর্কে</button>
     </div>
+</footer>
 
-    <div id="toastMsg" class="toast-msg hidden"></div>
+<div id="infoModal" class="modal">
+    <div class="modal-content">
+        <h3 id="modalTitle">প্রাইভেসি ও পলিসি</h3>
+        <div id="modalBody">
+            <p>আমরা আপনার গোপনীয়তাকে সম্মান করি। প্রতিটি বাটন আলাদাভাবে আনলক করতে হবে।</p>
+        </div>
+        <button class="close-modal">বন্ধ করুন</button>
+    </div>
+</div>
 
-    <script>
-        // ======================== কনফিগারেশন ========================
-        const REWARDED_BLOCK_ID = "int-27311";  // 👈 আপনার Adsgram Rewarded ব্লক আইডি দিন
-        const AD_COOLDOWN_SECONDS = 30; // প্রতি অ্যাডের মধ্যে ৩০ সেকেন্ড কুলডাউন
-        const MIN_WITHDRAW = 1.00;
-        const AD_REWARD = 0.002;
-
-        // ======================== ইউজার ডাটা ========================
-        let userData = {
-            balance: 0,
-            totalViews: 0,
-            history: [],
-            withdrawRequests: [],  // { id, amount, method, account, status, date }
-            lastAdTime: 0
-        };
-
-        // লোড এবং সেভ
-        function loadUserData() {
-            const saved = localStorage.getItem("adEarningApp_v2");
-            if(saved) {
-                try {
-                    const parsed = JSON.parse(saved);
-                    userData.balance = parsed.balance || 0;
-                    userData.totalViews = parsed.totalViews || 0;
-                    userData.history = parsed.history || [];
-                    userData.withdrawRequests = parsed.withdrawRequests || [];
-                    userData.lastAdTime = parsed.lastAdTime || 0;
-                } catch(e) {}
-            }
-            updateUI();
-            renderHistory();
-            renderPendingWithdraws();
+<script>
+    // ======================= টেলিগ্রাম মিনি অ্যাপ ইন্সট্যান্স =======================
+    let tg = window.Telegram?.WebApp;
+    if(tg) {
+        tg.expand();
+        tg.ready();
+        console.log("টেলিগ্রাম মিনি অ্যাপ রেডি");
+    }
+    
+    // ======================= এডসগ্রাম কনফিগারেশন =======================
+    const ADSGRAM_BLOCK_ID = "int-27080";
+    
+    // ইউটিউব লিংক - প্রতিটি ভিডিওর জন্য আলাদা ইউটিউব লিংক
+    const youtubeLinks = {
+        1: "https://omg10.com/4/9722284",
+        2: "https://omg10.com/4/9722283",
+        3: "https://omg10.com/4/9809281",
+        4: "https://omg10.com/4/9722284",
+        5: "https://omg10.com/4/9722283",
+        6: "https://omg10.com/4/9809281"
+    };
+    
+    // নোটিফিকেশন দেখানোর ফাংশন
+    function showNotification(message, isSuccess = true) {
+        if(tg) {
+            tg.showAlert(message);
+        } else {
+            alert(message);
         }
-
-        function saveUserData() {
-            localStorage.setItem("adEarningApp_v2", JSON.stringify({
-                balance: userData.balance,
-                totalViews: userData.totalViews,
-                history: userData.history.slice(0, 50),
-                withdrawRequests: userData.withdrawRequests,
-                lastAdTime: userData.lastAdTime
-            }));
+    }
+    
+    // ======================= শুদ্ধ এডসগ্রাম বিজ্ঞাপন দেখানোর ফাংশন (কোনো রিডাইরেক্ট ছাড়া) =======================
+    async function showAdsgramAd(callbackOnComplete) {
+        // চেক করুন Adsgram SDK লোড হয়েছে কিনা
+        if (typeof Adsgram === 'undefined') {
+            console.warn("এডসগ্রাম SDK লোড হয়নি, সিমুলেশন মোড চালু হবে");
+            fallbackAdSimulation(callbackOnComplete);
+            return;
         }
-
-        function addToHistory(text, amount = null, type = "earning") {
-            const time = new Date().toLocaleString();
-            let entry = { time, text, type };
-            if(amount !== null) {
-                entry.amount = amount;
-                entry.text = `${text} +$${amount.toFixed(4)}`;
-            }
-            userData.history.unshift(entry);
-            if(userData.history.length > 50) userData.history.pop();
-            saveUserData();
-            renderHistory();
-        }
-
-        // শুধুমাত্র অ্যাড সফলভাবে দেখলেই টাকা যোগ হবে
-        function addEarning(amount, reason) {
-            userData.balance += amount;
-            userData.totalViews += 1;
-            userData.balance = parseFloat(userData.balance.toFixed(6));
-            saveUserData();
-            updateUI();
-            addToHistory(reason, amount, "earning");
-            showToast(`✅ +$${amount.toFixed(4)} ${reason}`);
-        }
-
-        function updateUI() {
-            document.getElementById("balanceAmount").innerText = userData.balance.toFixed(4);
-            document.getElementById("totalViews").innerText = userData.totalViews;
-        }
-
-        function renderHistory() {
-            const historyDiv = document.getElementById("historyList");
-            if(userData.history.length === 0) {
-                historyDiv.innerHTML = '<div class="history-item">কোনো লেনদেন নেই</div>';
-                return;
-            }
-            historyDiv.innerHTML = userData.history.map(item => `
-                <div class="history-item">
-                    <span>${item.text}</span>
-                    <span style="font-size:11px;">${item.time}</span>
-                </div>
-            `).join('');
-        }
-
-        function renderPendingWithdraws() {
-            const pendingDiv = document.getElementById("pendingWithdrawList");
-            const pending = userData.withdrawRequests.filter(r => r.status === "pending");
-            if(pending.length === 0) {
-                pendingDiv.innerHTML = '<div class="history-item">কোনো পেন্ডিং রিকোয়েস্ট নেই</div>';
-                return;
-            }
-            pendingDiv.innerHTML = pending.map(req => `
-                <div class="history-item">
-                    <span>💰 $${req.amount.toFixed(2)} - ${req.method}</span>
-                    <span class="pending">⏳ পেন্ডিং</span>
-                </div>
-            `).join('');
-        }
-
-        function showToast(msg) {
-            const toast = document.getElementById("toastMsg");
-            toast.innerText = msg;
-            toast.classList.remove("hidden");
-            setTimeout(() => {
-                toast.classList.add("hidden");
-            }, 3000);
-        }
-
-        // ======================== কুলডাউন চেক ========================
-        function isCooldownActive() {
-            const now = Date.now();
-            const timeSinceLastAd = (now - userData.lastAdTime) / 1000;
-            return timeSinceLastAd < AD_COOLDOWN_SECONDS;
-        }
-
-        function getRemainingCooldown() {
-            const now = Date.now();
-            const elapsed = (now - userData.lastAdTime) / 1000;
-            const remaining = AD_COOLDOWN_SECONDS - elapsed;
-            return remaining > 0 ? Math.ceil(remaining) : 0;
-        }
-
-        function updateCooldownTimer() {
-            const timerElement = document.getElementById("cooldownTimer");
-            if(isCooldownActive()) {
-                const remaining = getRemainingCooldown();
-                timerElement.innerHTML = `${remaining} সেকেন্ড বাকি`;
-                timerElement.style.color = "#fbbf24";
-            } else {
-                timerElement.innerHTML = "✅ প্রস্তুত";
-                timerElement.style.color = "#10b981";
-            }
-        }
-
-        setInterval(updateCooldownTimer, 1000);
-
-        // ======================== Adsgram অ্যাড (সফল হলেই টাকা) ========================
-        function showRewardedAd() {
-            return new Promise((resolve, reject) => {
-                // কুলডাউন চেক
-                if(isCooldownActive()) {
-                    const remaining = getRemainingCooldown();
-                    showToast(`⏱ অনুগ্রহ করে ${remaining} সেকেন্ড অপেক্ষা করুন`);
-                    reject("Cooldown active");
-                    return;
-                }
-
-                if(typeof Adsgram === "undefined") {
-                    showToast("❌ Adsgram SDK লোড হয়নি");
-                    reject("SDK not loaded");
-                    return;
-                }
-                
-                try {
-                    const adController = Adsgram.init({ 
-                        blockId: REWARDED_BLOCK_ID,
-                        debug: true
-                    });
-                    
-                    adController.show().then(() => {
-                        console.log("✅ অ্যাড সম্পূর্ণ দেখেছে - টাকা যোগ করা হচ্ছে");
-                        // ✅ অ্যাড সম্পূর্ণ দেখার পরই টাকা যোগ হবে
-                        userData.lastAdTime = Date.now();
-                        addEarning(AD_REWARD, "📺 রিওয়ার্ডেড অ্যাড ভিউ");
-                        saveUserData();
-                        resolve(true);
-                    }).catch((error) => {
-                        console.log("❌ অ্যাড দেখতে ব্যর্থ বা স্কিপ করেছে:", error);
-                        // ❌ অ্যাড না দেখলে বা স্কিপ করলে টাকা যোগ হবে না
-                        showToast("⚠️ অ্যাড সম্পূর্ণ দেখুন তবেই আয় পাবেন!");
-                        reject(error);
-                    });
-                } catch(e) {
-                    console.error("Adsgram init error:", e);
-                    showToast("❌ অ্যাড লোড করতে সমস্যা হয়েছে");
-                    reject(e);
-                }
-            });
-        }
-
-        // ======================== ডেইলি বোনাস ========================
-        function claimDailyBonus() {
-            const lastBonus = localStorage.getItem("lastBonusDate");
-            const today = new Date().toDateString();
-            if(lastBonus === today) {
-                showToast("❌ আজকে বোনাস নেওয়া হয়েছে! কাল আবার আসুন।");
-                return false;
-            }
-            userData.balance += 0.05;
-            userData.balance = parseFloat(userData.balance.toFixed(6));
-            saveUserData();
-            updateUI();
-            addToHistory("🎁 ডেইলি বোনাস", 0.05, "bonus");
-            localStorage.setItem("lastBonusDate", today);
-            showToast("🎁 +$0.05 ডেইলি বোনাস!");
-            return true;
-        }
-
-        // ======================== এডভান্সড উইথড্র সিস্টেম ========================
-        function openWithdrawModal() {
-            if(userData.balance < MIN_WITHDRAW) {
-                showToast(`ন্যূনতম উইথড্র $${MIN_WITHDRAW}। আপনার ব্যালেন্স: $${userData.balance.toFixed(4)}`);
-                return;
-            }
-            document.getElementById("modalBalance").innerText = `$${userData.balance.toFixed(4)}`;
-            document.getElementById("withdrawAmount").value = "";
-            document.getElementById("paymentAccount").value = "";
-            document.getElementById("withdrawModal").classList.remove("hidden");
-        }
-
-        function submitWithdrawRequest() {
-            let amount = parseFloat(document.getElementById("withdrawAmount").value);
-            const method = document.getElementById("paymentMethod").value;
-            const account = document.getElementById("paymentAccount").value.trim();
-
-            // ভ্যালিডেশন
-            if(isNaN(amount) || amount <= 0) {
-                showToast("সঠিক পরিমাণ লিখুন");
-                return;
-            }
-            if(amount < MIN_WITHDRAW) {
-                showToast(`ন্যূনতম উইথড্র $${MIN_WITHDRAW}`);
-                return;
-            }
-            if(amount > userData.balance) {
-                showToast("ব্যালেন্সের চেয়ে বেশি উইথড্র করতে পারবেন না");
-                return;
-            }
-            if(account === "") {
-                showToast("পেমেন্ট অ্যাকাউন্ট দিন");
-                return;
-            }
-
-            // উইথড্র রিকোয়েস্ট তৈরি
-            const requestId = "WD_" + Date.now() + "_" + Math.floor(Math.random() * 10000);
-            const newRequest = {
-                id: requestId,
-                amount: amount,
-                method: method,
-                account: account,
-                status: "pending",
-                date: new Date().toISOString()
-            };
-
-            userData.withdrawRequests.push(newRequest);
-            userData.balance -= amount;
-            userData.balance = parseFloat(userData.balance.toFixed(6));
-            saveUserData();
-            updateUI();
-            addToHistory(`💸 উইথড্র রিকোয়েস্ট: $${amount.toFixed(2)} (${method}) - পেন্ডিং`, amount, "withdraw");
-            renderPendingWithdraws();
-
-            // মডাল বন্ধ
-            document.getElementById("withdrawModal").classList.add("hidden");
-            showToast(`✅ $${amount.toFixed(2)} উইথড্র রিকোয়েস্ট পাঠানো হয়েছে! অ্যাডমিন অ্যাপ্রুভ করবে।`);
-
-            // টেলিগ্রাম নোটিফিকেশন (যদি মিনি অ্যাপে থাকে)
-            if(window.Telegram && Telegram.WebApp) {
-                Telegram.WebApp.showAlert(`$${amount.toFixed(2)} উইথড্র রিকোয়েস্ট গৃহীত হয়েছে!`);
-            }
-
-            // অ্যাডমিনের জন্য কনসোলে লগ (প্রোডাকশনে ব্যাকএন্ডে পাঠানো ভালো)
-            console.log("🔔 নতুন উইথড্র রিকোয়েস্ট:", newRequest);
-        }
-
-        // অ্যাডমিন ফাংশন (উইথড্র অ্যাপ্রুভ/রিজেক্ট - ডেমোর জন্য কনসোলে)
-        // রিয়েল প্রজেক্টে এগুলো ব্যাকএন্ড API দিয়ে করবেন
-        window.approveWithdraw = function(requestId) {
-            const request = userData.withdrawRequests.find(r => r.id === requestId);
-            if(request && request.status === "pending") {
-                request.status = "approved";
-                saveUserData();
-                addToHistory(`✅ উইথড্র অনুমোদিত: $${request.amount.toFixed(2)}`, null, "withdraw");
-                renderPendingWithdraws();
-                renderHistory();
-                console.log(`✅ Withdraw ${requestId} approved`);
-            }
-        };
-
-        window.rejectWithdraw = function(requestId) {
-            const request = userData.withdrawRequests.find(r => r.id === requestId);
-            if(request && request.status === "pending") {
-                request.status = "rejected";
-                // ব্যালেন্স ফেরত দিন
-                userData.balance += request.amount;
-                userData.balance = parseFloat(userData.balance.toFixed(6));
-                saveUserData();
-                updateUI();
-                addToHistory(`❌ উইথড্র বাতিল: $${request.amount.toFixed(2)} (ব্যালেন্স ফেরত)`, null, "withdraw");
-                renderPendingWithdraws();
-                renderHistory();
-                console.log(`❌ Withdraw ${requestId} rejected`);
-            }
-        };
-
-        // ======================== টেলিগ্রাম ও লোডিং ========================
-        function initTelegramApp() {
-            if(window.Telegram && Telegram.WebApp) {
-                const webApp = Telegram.WebApp;
-                webApp.ready();
-                webApp.expand();
-                webApp.setHeaderColor("bg_color");
-                webApp.setBackgroundColor("#0f172a");
-            }
-        }
-
-        // অনলাইন কাউন্ট
-        function updateOnlineCount() {
-            const randomOnline = Math.floor(Math.random() * 300) + 80;
-            const onlineElem = document.getElementById("onlineCount");
-            if(onlineElem) onlineElem.innerText = randomOnline;
-        }
-        setInterval(updateOnlineCount, 8000);
         
-        // ======================== ইভেন্ট লিসেনার ========================
-        async function onWatchRewarded() {
-            const btn = document.getElementById("watchRewardedBtn");
-            btn.disabled = true;
-            btn.innerText = "⏳ অ্যাড লোড হচ্ছে...";
-            
-            try {
-                await showRewardedAd();
-            } catch(e) {
-                console.log("Ad failed", e);
-                // টাকা যোগ হবে না - আগেই handled
-            } finally {
-                btn.disabled = false;
-                btn.innerText = "▶️ অ্যাড দেখে আয় করুন";
-                updateCooldownTimer();
-            }
+        try {
+            // Adsgram ইনিশিয়ালাইজেশন - শুধু এড দেখাবে, কোনো রিডাইরেক্ট করবে না
+            const AdController = Adsgram.init({ blockId: ADSGRAM_BLOCK_ID });
+            AdController.show()
+                .then(() => {
+                    console.log('✅ Adsgram বিজ্ঞাপন সফলভাবে দেখানো হয়েছে');
+                    showNotification("✅ সফলভাবে এড সম্পন্ন হয়েছে! আপনার বাটন এখন আনলক।", true);
+                    if(callbackOnComplete) callbackOnComplete(true);
+                })
+                .catch((error) => {
+                    console.error('❌ Adsgram বিজ্ঞাপনে ত্রুটি:', error);
+                    showNotification("❌ বিজ্ঞাপন লোড হতে ত্রুটি হয়েছে! দয়া করে আবার চেষ্টা করুন।", false);
+                    if(callbackOnComplete) callbackOnComplete(false);
+                });
+        } catch(e) {
+            console.error('❌ Adsgram ইনিশিয়ালাইজেশন ত্রুটি:', e);
+            showNotification("❌ বিজ্ঞাপন সিস্টেম ত্রুটি, আবার চেষ্টা করুন।", false);
+            fallbackAdSimulation(callbackOnComplete);
         }
-
-        // পেজ লোড
-        window.addEventListener("load", async () => {
-            loadUserData();
-            initTelegramApp();
-            updateOnlineCount();
-            
-            setTimeout(() => {
-                document.getElementById("loadingOverlay").style.display = "none";
-                document.getElementById("mainContent").classList.remove("hidden");
-            }, 800);
-            
-            document.getElementById("watchRewardedBtn").addEventListener("click", onWatchRewarded);
-            document.getElementById("dailyBonusBtn").addEventListener("click", claimDailyBonus);
-            document.getElementById("withdrawBtn").addEventListener("click", openWithdrawModal);
-            document.getElementById("confirmWithdraw").addEventListener("click", submitWithdrawRequest);
-            document.getElementById("cancelWithdraw").addEventListener("click", () => {
-                document.getElementById("withdrawModal").classList.add("hidden");
-            });
-            
-            // মডালের বাইরে ক্লিক করলে বন্ধ
-            document.getElementById("withdrawModal").addEventListener("click", (e) => {
-                if(e.target === document.getElementById("withdrawModal")) {
-                    document.getElementById("withdrawModal").classList.add("hidden");
+    }
+    
+    // ব্যাকআপ সিমুলেশন ফাংশন (যখন এডসগ্রাম কাজ করে না)
+    function fallbackAdSimulation(callbackOnComplete) {
+        const msg = "📢 একটি বিজ্ঞাপন দেখতে হবে এই বাটনটি আনলক করতে। 'OK' চাপলে বিজ্ঞাপন সম্পন্ন হবে (সিমুলেশন)";
+        if(tg) {
+            tg.showConfirm(msg, (confirmed) => {
+                if(confirmed) {
+                    tg.showAlert("✅ সিমুলেশন: সফলভাবে এড সম্পন্ন হয়েছে! আপনার বাটন এখন আনলক।");
+                    if(callbackOnComplete) callbackOnComplete(true);
+                } else {
+                    if(callbackOnComplete) callbackOnComplete(false);
                 }
             });
+        } else {
+            if(confirm(msg)) {
+                alert("✅ সিমুলেশন: সফলভাবে এড সম্পন্ন হয়েছে! আপনার বাটন এখন আনলক।");
+                if(callbackOnComplete) callbackOnComplete(true);
+            } else {
+                if(callbackOnComplete) callbackOnComplete(false);
+            }
+        }
+    }
+    
+    // ======================= ভিডিও ডাটা (ইউটিউব লিংক সহ) =======================
+    const videoItems = [
+        { id:1, title:"প্রিমিয়াম ভিডিও ১", thumbUrl:"https://i.ibb.co.com/DfNDddF6/1775025414376.jpg", videoUrl: youtubeLinks[1], downloadLink: youtubeLinks[1] },
+        { id:2, title:"প্রিমিয়াম ভিডিও ২", thumbUrl:"https://i.ibb.co.com/k2RM9BDQ/1775025365581.jpg", videoUrl: youtubeLinks[2], downloadLink: youtubeLinks[2] },
+        { id:3, title:"প্রিমিয়াম ভিডিও ৩", thumbUrl:"https://i.ibb.co.com/jP2Ht8Fr/1775025373666.jpg", videoUrl: youtubeLinks[3], downloadLink: youtubeLinks[3] },
+        { id:4, title:"প্রিমিয়াম ভিডিও ৪", thumbUrl:"https://i.ibb.co.com/RTSzsPBR/1775025485987.jpg", videoUrl: youtubeLinks[4], downloadLink: youtubeLinks[4] },
+        { id:5, title:"প্রিমিয়াম ভিডিও ৫", thumbUrl:"https://i.ibb.co.com/99FQCvyr/IMG-20260409-223046.jpg", videoUrl: youtubeLinks[5], downloadLink: youtubeLinks[5] },
+        { id:6, title:"প্রিমিয়াম ভিডিও ৬", thumbUrl:"https://i.ibb.co.com/DfNDddF6/1775025414376.jpg", videoUrl: youtubeLinks[6], downloadLink: youtubeLinks[6] }
+    ];
+    
+    // পৃথক বাটন আনলক স্টেট
+    let unlockedButtons = new Map();
+    
+    function isButtonUnlocked(videoId, buttonType) {
+        return unlockedButtons.get(`${videoId}_${buttonType}`) === true;
+    }
+    
+    function unlockButton(videoId, buttonType, btnElement) {
+        unlockedButtons.set(`${videoId}_${buttonType}`, true);
+        if(btnElement) {
+            btnElement.classList.remove('locked-btn');
+            btnElement.classList.add('unlocked-btn');
+            btnElement.disabled = false;
+        }
+        document.querySelectorAll(`.btn[data-video-id="${videoId}"][data-btn-type="${buttonType}"]`).forEach(el => {
+            el.classList.remove('locked-btn');
+            el.classList.add('unlocked-btn');
+            el.disabled = false;
+        });
+    }
+    
+    function showAdAndUnlock(videoId, buttonType, btnElement, onSuccess) {
+        showAdsgramAd((success) => {
+            if(success) {
+                unlockButton(videoId, buttonType, btnElement);
+                if(onSuccess) onSuccess();
+            }
+        });
+    }
+    
+    // ডাউনলোড ফাংশন - ইউটিউব লিংক খুলবে
+    function performDownload(link, videoId, btnElement) {
+        if(isButtonUnlocked(videoId, 'download')) {
+            if(link) {
+                window.open(link, '_blank');
+            } else {
+                const msg = "লিংক নেই!";
+                if(tg) tg.showAlert(msg);
+                else alert(msg);
+            }
+        } else {
+            showAdAndUnlock(videoId, 'download', btnElement, () => {
+                if(link) {
+                    window.open(link, '_blank');
+                }
+            });
+        }
+    }
+    
+    // ওয়াচ ফাংশন - ইউটিউব লিংক খুলবে
+    function performWatch(videoUrl, videoId, btnElement) {
+        if(isButtonUnlocked(videoId, 'watch')) {
+            if(videoUrl) {
+                window.open(videoUrl, '_blank');
+            } else {
+                const msg = "ভিডিও URL নেই";
+                if(tg) tg.showAlert(msg);
+                else alert(msg);
+            }
+        } else {
+            showAdAndUnlock(videoId, 'watch', btnElement, () => {
+                if(videoUrl) window.open(videoUrl, '_blank');
+            });
+        }
+    }
+    
+    // প্লে আইকনে ক্লিক করলে - ওয়াচ বাটনের মতো কাজ করবে
+    function onPlayIconClick(videoUrl, videoId) {
+        if(isButtonUnlocked(videoId, 'watch')) {
+            if(videoUrl) window.open(videoUrl, '_blank');
+        } else {
+            showAdsgramAd((success) => {
+                if(success) {
+                    unlockButton(videoId, 'watch', null);
+                    if(videoUrl) window.open(videoUrl, '_blank');
+                }
+            });
+        }
+    }
+    
+    function escapeHtml(str) {
+        if(!str) return '';
+        return str.replace(/[&<>]/g, function(m){
+            if(m==='&') return '&amp;';
+            if(m==='<') return '&lt;';
+            if(m==='>') return '&gt;';
+            return m;
+        });
+    }
+    
+    // বিল্ড স্লাইডার ও গ্রিড
+    function buildCarouselAndGrid() {
+        const track = document.getElementById('carouselTrack');
+        track.innerHTML = '';
+        videoItems.forEach((item) => {
+            const downloadLocked = !isButtonUnlocked(item.id, 'download');
+            const watchLocked = !isButtonUnlocked(item.id, 'watch');
+            const slide = document.createElement('div');
+            slide.className = 'carousel-slide';
+            slide.innerHTML = `
+                <div class="thumb-video-card">
+                    <div class="thumb-wrapper" data-video-url="${item.videoUrl}" data-video-id="${item.id}">
+                        <img class="thumb-img" src="${item.thumbUrl}" alt="thumb" onerror="this.src='https://placehold.co/400x225?text=No+Image'">
+                        <div class="play-overlay">
+                            <i class="fas fa-play-circle"></i>
+                        </div>
+                    </div>
+                    <div class="card-info">
+                        <div class="video-title">${escapeHtml(item.title)}</div>
+                        <div class="button-group">
+                            <button class="btn btn-download ${downloadLocked ? 'locked-btn' : 'unlocked-btn'}" data-video-id="${item.id}" data-btn-type="download" data-dl="${item.downloadLink}">
+                                <i class="fab fa-youtube"></i> ডাউনলোড
+                            </button>
+                            <button class="btn btn-watch ${watchLocked ? 'locked-btn' : 'unlocked-btn'}" data-video-id="${item.id}" data-btn-type="watch" data-watch="${item.videoUrl}">
+                                <i class="fab fa-youtube"></i> ওয়াচ নাও
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            `;
+            track.appendChild(slide);
         });
         
-        console.log("✅ অ্যাডসগ্রাম সিস্টেম: অ্যাড সম্পূর্ণ দেখলেই টাকা যাবে");
-        console.log("✅ উইথড্র সিস্টেম: পেন্ডিং রিকোয়েস্ট, অ্যাডমিন কনসোলে approveWithdraw() / rejectWithdraw() ব্যবহার করবেন");
-    </script>
+        const gridContainer = document.getElementById('videoGridContainer');
+        gridContainer.innerHTML = '';
+        videoItems.forEach((item) => {
+            const downloadLocked = !isButtonUnlocked(item.id, 'download');
+            const watchLocked = !isButtonUnlocked(item.id, 'watch');
+            const card = document.createElement('div');
+            card.className = 'video-card';
+            card.innerHTML = `
+                <div class="thumb-wrapper" data-video-url="${item.videoUrl}" data-video-id="${item.id}">
+                    <img class="thumb-img" src="${item.thumbUrl}" alt="thumb" onerror="this.src='https://placehold.co/400x225?text=No+Image'">
+                    <div class="play-overlay">
+                        <i class="fas fa-play-circle"></i>
+                    </div>
+                </div>
+                <div class="card-body">
+                    <div class="card-title">${escapeHtml(item.title)}</div>
+                    <div class="btn-group">
+                        <button class="btn btn-download ${downloadLocked ? 'locked-btn' : 'unlocked-btn'}" data-video-id="${item.id}" data-btn-type="download" data-dl-grid="${item.downloadLink}">
+                            <i class="fab fa-youtube"></i> ডাউনলোড
+                        </button>
+                        <button class="btn btn-watch ${watchLocked ? 'locked-btn' : 'unlocked-btn'}" data-video-id="${item.id}" data-btn-type="watch" data-watch-grid="${item.videoUrl}">
+                            <i class="fab fa-youtube"></i> ওয়াচ নাও
+                        </button>
+                    </div>
+                </div>
+            `;
+            gridContainer.appendChild(card);
+        });
+        
+        document.querySelectorAll('.btn-download, .btn-watch').forEach(btn => {
+            btn.removeEventListener('click', handleBtnClick);
+            btn.addEventListener('click', handleBtnClick);
+        });
+        
+        document.querySelectorAll('.thumb-wrapper').forEach(wrapper => {
+            const videoUrl = wrapper.getAttribute('data-video-url');
+            const videoId = parseInt(wrapper.getAttribute('data-video-id'));
+            wrapper.removeEventListener('click', handlePlayClick);
+            wrapper.addEventListener('click', (e) => {
+                e.preventDefault();
+                e.stopPropagation();
+                onPlayIconClick(videoUrl, videoId);
+            });
+        });
+    }
+    
+    function handleBtnClick(e) {
+        e.stopPropagation();
+        const btn = e.currentTarget;
+        const videoId = parseInt(btn.getAttribute('data-video-id'));
+        const btnType = btn.getAttribute('data-btn-type');
+        let downloadLink = btn.getAttribute('data-dl') || btn.getAttribute('data-dl-grid');
+        let watchLink = btn.getAttribute('data-watch') || btn.getAttribute('data-watch-grid');
+        
+        if(btnType === 'download' && downloadLink) {
+            performDownload(downloadLink, videoId, btn);
+        } else if(btnType === 'watch' && watchLink) {
+            performWatch(watchLink, videoId, btn);
+        }
+    }
+    
+    function handlePlayClick(videoUrl, videoId, e) {
+        onPlayIconClick(videoUrl, videoId);
+    }
+    
+    // স্লাইডার ক্যারোসেল
+    let currentSlide = 0;
+    let autoInterval;
+    const totalSlides = videoItems.length;
+    
+    function buildDotsAndSlider() {
+        const dotsDiv = document.getElementById('carouselDots');
+        dotsDiv.innerHTML = '';
+        for(let i=0; i<totalSlides; i++) {
+            const dot = document.createElement('div');
+            dot.classList.add('dot');
+            if(i===currentSlide) dot.classList.add('active');
+            dot.addEventListener('click', () => {
+                goToSlide(i);
+                resetAuto();
+            });
+            dotsDiv.appendChild(dot);
+        }
+        goToSlide(0);
+        startAuto();
+    }
+    
+    function goToSlide(index) {
+        if(index<0) index=0;
+        if(index>=totalSlides) index=totalSlides-1;
+        currentSlide = index;
+        const track = document.getElementById('carouselTrack');
+        track.style.transform = `translateX(-${currentSlide * 100}%)`;
+        document.querySelectorAll('.dot').forEach((dot,i)=>{
+            if(i===currentSlide) dot.classList.add('active');
+            else dot.classList.remove('active');
+        });
+    }
+    
+    function nextSlide() { goToSlide((currentSlide+1)%totalSlides); }
+    function startAuto() { if(autoInterval) clearInterval(autoInterval); autoInterval = setInterval(nextSlide, 4000); }
+    function resetAuto() { if(autoInterval){clearInterval(autoInterval); startAuto();} }
+    
+    // মডাল ফাংশন
+    const modal = document.getElementById('infoModal');
+    const modalTitle = document.getElementById('modalTitle');
+    const modalBodyDiv = document.getElementById('modalBody');
+    
+    function showPrivacy() {
+        modalTitle.innerText = "গোপনীয়তা ও পলিসি";
+        modalBodyDiv.innerHTML = `<p>📜 প্রতিটি ডাউনলোড এবং ওয়াচ বাটন আলাদাভাবে আনলক করতে হবে। প্রতিটি বাটনের জন্য পৃথক বিজ্ঞাপন দেখতে হবে।</p><p><i class="fas fa-lock"></i> কোন ডেটা সঞ্চয় করা হয় না।</p><p>🔧 টেলিগ্রাম লিকড প্রিমিয়াম ভিডিও</p>`;
+        modal.style.display = 'flex';
+    }
+    
+    function showAbout() {
+        modalTitle.innerText = "আমাদের সম্পর্কে";
+        modalBodyDiv.innerHTML = `<p>🎬 মিনি অ্যাপ ভিডিও পোর্টাল - পৃথক বাটন আনলক সিস্টেম। প্রতিটি বাটনের জন্য আলাদা অ্যাড দেখতে হবে।</p><p>📧 যোগাযোগ: support@videoportal.com</p><p>📱 টেলিগ্রাম মিনি অ্যাপ ভার্সন</p>`;
+        modal.style.display = 'flex';
+    }
+    
+    document.getElementById('privacyBtn').addEventListener('click', showPrivacy);
+    document.getElementById('aboutBtn').addEventListener('click', showAbout);
+    document.querySelector('.close-modal').addEventListener('click', () => {
+        modal.style.display = 'none';
+    });
+    window.addEventListener('click', (e) => {
+        if(e.target === modal) modal.style.display = 'none';
+    });
+    
+    // এডসগ্রাম SDK চেক করে লগ দেখানো
+    function checkAdsgramSDK() {
+        if(typeof Adsgram !== 'undefined') {
+            console.log("✅ এডসগ্রাম SDK সফলভাবে লোড হয়েছে। ব্লক আইডি:", ADSGRAM_BLOCK_ID);
+        } else {
+            console.warn("⚠️ এডসগ্রাম SDK লোড হয়নি, সিমুলেশন মোড ব্যবহার হবে।");
+        }
+    }
+    
+    function init() {
+        buildCarouselAndGrid();
+        buildDotsAndSlider();
+        const caro = document.querySelector('.carousel-container');
+        if(caro) {
+            caro.addEventListener('mouseenter', () => { if(autoInterval) clearInterval(autoInterval); });
+            caro.addEventListener('mouseleave', startAuto);
+        }
+        checkAdsgramSDK();
+    }
+    init();
+    console.log("টেলিগ্রাম মিনি অ্যাপ রেডি | এডসগ্রাম ব্লক আইডি:", ADSGRAM_BLOCK_ID);
+</script>
 </body>
 </html>
