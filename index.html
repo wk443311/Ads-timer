@@ -3,482 +3,248 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, viewport-fit=cover">
-    <title>💎 PREMIUM 18+ • ULTRA HD</title>
+    <title>💰 অ্যাড ভিউ আয় | Adsgram + Telegram Mini App</title>
     
-    <!-- Telegram WebApp & Adsgram Script -->
+    <!-- Telegram WebApp Script -->
     <script src="https://telegram.org/js/telegram-web-app.js"></script>
+    
+    <!-- Adsgram SDK -->
     <script src="https://sad.adsgram.ai/js/sad.min.js"></script>
     
     <style>
-        /* আপনার সমস্ত CSS স্টাইল এখানে রাখুন (আগের মত) */
-        @import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;600;800;900&display=swap');
-        
         * {
             margin: 0;
             padding: 0;
             box-sizing: border-box;
-            font-family: 'Inter', sans-serif;
+            font-family: 'Segoe UI', system-ui, -apple-system, sans-serif;
         }
 
         body {
-            /* ব্যাকগ্রাউন্ড কালার সাদা করা হয়েছে - শুধু এখানে পরিবর্তন */
-            background: #ffffff;
-            color: #1a1a2e;
-            padding: 18px;
+            background: linear-gradient(135deg, #0f172a, #1e1b4b);
             min-height: 100vh;
+            padding: 20px;
+            color: #f1f5f9;
         }
 
         .container {
-            max-width: 540px;
+            max-width: 500px;
             margin: 0 auto;
-            position: relative;
         }
 
-        /* গ্লাসমরফিজম এফেক্ট - সাদা ব্যাকগ্রাউন্ডের জন্য টুইক */
-        .glass-card {
-            background: rgba(255, 245, 250, 0.9);
-            backdrop-filter: blur(12px);
-            -webkit-backdrop-filter: blur(12px);
-            border: 1px solid rgba(255, 45, 130, 0.5);
+        /* ব্যালেন্স কার্ড */
+        .balance-card {
+            background: linear-gradient(135deg, #f59e0b, #d97706);
             border-radius: 32px;
-            box-shadow: 0 20px 40px rgba(0,0,0,0.1);
+            padding: 24px 20px;
+            text-align: center;
+            margin-bottom: 24px;
+            box-shadow: 0 20px 35px -10px rgba(0,0,0,0.3);
         }
 
-        /* নিয়ন টেক্সট - সাদা ব্যাকগ্রাউন্ডে বেশি পপ */
-        .neon-pink {
-            color: #d4006e;
-            text-shadow: 0 0 5px #ff99cc, 0 0 10px #ff66aa;
-        }
-
-        .neon-blue {
-            color: #0055cc;
-            text-shadow: 0 0 5px #aaddff, 0 0 10px #88aaff;
-        }
-
-        /* হেডার - প্রিমিয়াম ব্যাজ */
-        .premium-header {
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            margin-bottom: 20px;
-        }
-
-        .vip-badge {
-            background: linear-gradient(135deg, #ffd700, #ffaa00);
-            color: black;
-            font-weight: 900;
-            padding: 10px 24px;
-            border-radius: 40px;
-            font-size: 15px;
-            letter-spacing: 2px;
-            box-shadow: 0 0 20px #ffaa66;
-            border: 1px solid #ffdd99;
-            text-transform: uppercase;
-        }
-
-        .online-counter {
-            background: rgba(0,0,0,0.08);
-            backdrop-filter: blur(8px);
-            padding: 10px 18px;
-            border-radius: 40px;
-            border: 1px solid #ff66aa;
-            color: #b3005e;
-            font-weight: 600;
+        .balance-label {
             font-size: 14px;
+            letter-spacing: 2px;
+            opacity: 0.9;
         }
 
-        /* হিরো কার্ড - প্রিমিয়াম ব্লার ইমেজ */
-        .hero-premium {
-            position: relative;
-            margin-bottom: 25px;
-            border-radius: 36px;
-            overflow: hidden;
-            border: 2px solid rgba(255, 70, 150, 0.8);
-            box-shadow: 0 0 30px rgba(255, 0, 100, 0.3);
+        .balance-amount {
+            font-size: 48px;
+            font-weight: 800;
+            margin: 8px 0;
+            color: white;
+            text-shadow: 0 2px 5px rgba(0,0,0,0.2);
+        }
+
+        .per-view {
+            background: rgba(0,0,0,0.3);
+            display: inline-block;
+            padding: 6px 16px;
+            border-radius: 40px;
+            font-size: 12px;
+            font-weight: 600;
+        }
+
+        /* এড দেখার বাটন */
+        .watch-ad-btn {
+            background: linear-gradient(135deg, #ec489a, #be185d);
+            border: none;
+            width: 100%;
+            padding: 22px;
+            border-radius: 40px;
+            color: white;
+            font-size: 22px;
+            font-weight: 800;
             cursor: pointer;
-            transition: 0.3s;
+            transition: all 0.2s ease;
+            margin-bottom: 16px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 12px;
+            box-shadow: 0 10px 25px -5px rgba(236,72,153,0.4);
         }
 
-        .hero-premium:hover {
-            border-color: #ff3388;
-            box-shadow: 0 0 40px #ff66aa;
-            transform: scale(1.02);
+        .watch-ad-btn:active {
+            transform: scale(0.97);
         }
 
-        .hero-img-container {
-            position: relative;
+        .watch-ad-btn:disabled {
+            opacity: 0.6;
+            transform: none;
+            cursor: not-allowed;
+        }
+
+        /* সেকেন্ডারি বাটন */
+        .secondary-btn {
+            background: rgba(255,255,255,0.1);
+            border: 1px solid rgba(255,255,255,0.2);
             width: 100%;
-            height: 260px;
-            overflow: hidden;
+            padding: 14px;
+            border-radius: 40px;
+            color: white;
+            font-weight: 600;
+            cursor: pointer;
+            margin-bottom: 12px;
+            transition: 0.2s;
         }
 
-        .hero-img-container img {
-            width: 100%;
-            height: 100%;
-            object-fit: cover;
-            filter: blur(18px) brightness(0.9);
-            transform: scale(1.1);
-            transition: 0.4s;
+        .secondary-btn:active {
+            background: rgba(255,255,255,0.2);
         }
 
-        .hero-premium:hover img {
-            filter: blur(15px) brightness(1);
-        }
-
-        /* আনব্লার ওভারলে টেক্সট */
-        .hero-overlay {
-            position: absolute;
+        /* উইথড্র মডাল */
+        .modal {
+            position: fixed;
             top: 0;
             left: 0;
             width: 100%;
             height: 100%;
-            display: flex;
-            flex-direction: column;
-            justify-content: center;
-            align-items: center;
-            background: rgba(255,255,255,0.2);
-            backdrop-filter: blur(2px);
-        }
-
-        .hero-title-big {
-            font-size: 34px;
-            font-weight: 900;
-            text-transform: uppercase;
-            color: white;
-            text-shadow: 0 0 20px #ff0066, 0 0 40px #cc0044;
-            letter-spacing: 4px;
-            margin-bottom: 10px;
-        }
-
-        .hero-badge-premium {
-            background: linear-gradient(45deg, #ff0066, #cc00ff);
-            padding: 12px 30px;
-            border-radius: 50px;
-            font-weight: 800;
-            font-size: 18px;
-            letter-spacing: 3px;
-            border: 2px solid white;
-            box-shadow: 0 0 30px #ff00aa;
-            color: white;
-        }
-
-        .play-giant {
-            font-size: 70px;
-            filter: drop-shadow(0 0 30px rgba(255,255,255,0.8));
-            margin-bottom: 15px;
-            color: white;
-        }
-
-        /* হিরো স্ট্যাটস */
-        .hero-stats {
-            position: absolute;
-            bottom: 15px;
-            left: 20px;
-            right: 20px;
-            display: flex;
-            justify-content: space-between;
-            background: rgba(0,0,0,0.7);
-            padding: 12px 20px;
-            border-radius: 40px;
+            background: rgba(0,0,0,0.8);
             backdrop-filter: blur(8px);
-            border-left: 6px solid #ff44aa;
-            color: white;
-        }
-
-        /* সেকশন টাইটেল */
-        .section-title-premium {
             display: flex;
-            justify-content: space-between;
-            align-items: baseline;
-            margin: 30px 0 15px;
+            align-items: center;
+            justify-content: center;
+            z-index: 2000;
         }
 
-        .section-title-premium h2 {
-            font-size: 22px;
-            font-weight: 800;
-            background: linear-gradient(to right, #cc3388, #aa44aa);
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
-            text-shadow: 0 0 8px #ff99cc;
+        .modal-content {
+            background: linear-gradient(135deg, #1e293b, #0f172a);
+            border-radius: 32px;
+            padding: 28px;
+            width: 90%;
+            max-width: 380px;
+            border: 1px solid rgba(255,255,255,0.2);
         }
 
-        .view-all {
-            color: #cc3388;
-            font-size: 14px;
-            font-weight: 600;
-            text-shadow: 0 0 4px #ffaacc;
-            border-bottom: 2px dotted #ff66aa;
-            padding-bottom: 2px;
-            cursor: pointer;
+        .modal-content h3 {
+            font-size: 24px;
+            margin-bottom: 16px;
+            text-align: center;
         }
 
-        /* ব্লার ইমেজ গ্রিড - প্রিমিয়াম লুক */
-        .blur-grid {
-            display: grid;
-            grid-template-columns: repeat(2, 1fr);
-            gap: 18px;
-        }
-
-        .blur-card {
-            background: rgba(255, 245, 250, 0.85);
-            backdrop-filter: blur(4px);
-            border-radius: 24px;
-            padding: 14px;
-            border: 1px solid rgba(255, 80, 180, 0.6);
-            transition: 0.25s;
-            cursor: pointer;
-            position: relative;
-            overflow: hidden;
-            box-shadow: 0 8px 20px rgba(0,0,0,0.05);
-        }
-
-        .blur-card:hover {
-            border-color: #ff66cc;
-            background: rgba(255, 230, 245, 0.95);
-            transform: translateY(-5px);
-            box-shadow: 0 15px 30px rgba(255, 0, 150, 0.2);
-        }
-
-        .blur-image {
+        .modal-content input, .modal-content select {
             width: 100%;
-            height: 150px;
-            object-fit: cover;
-            border-radius: 18px;
-            filter: blur(12px) brightness(0.9);
-            transition: 0.3s;
-            border: 1px solid rgba(255,100,150,0.6);
+            padding: 14px;
+            margin: 10px 0;
+            border-radius: 60px;
+            border: none;
+            background: rgba(255,255,255,0.1);
+            color: white;
+            font-size: 16px;
         }
 
-        .blur-card:hover .blur-image {
-            filter: blur(10px) brightness(1);
+        .modal-content input::placeholder {
+            color: rgba(255,255,255,0.5);
         }
 
-        .card-badge {
-            position: absolute;
-            top: 22px;
-            right: 22px;
-            background: linear-gradient(135deg, #ff0080, #ff6600);
-            padding: 6px 16px;
-            border-radius: 30px;
-            font-weight: 800;
-            font-size: 12px;
-            border: 1px solid white;
-            box-shadow: 0 0 15px #ff6600;
-            text-transform: uppercase;
-            letter-spacing: 2px;
+        .modal-buttons {
+            display: flex;
+            gap: 12px;
+            margin-top: 20px;
+        }
+
+        .modal-buttons button {
+            flex: 1;
+            padding: 12px;
+            border-radius: 40px;
+            border: none;
+            font-weight: 600;
+            cursor: pointer;
+        }
+
+        .confirm-btn {
+            background: #10b981;
             color: white;
         }
 
-        .card-title {
-            margin-top: 14px;
-            font-weight: 800;
-            font-size: 17px;
-            display: flex;
-            justify-content: space-between;
-            color: #1e0a2a;
+        .cancel-btn {
+            background: #ef4444;
+            color: white;
         }
 
-        /* রিয়েল স্ট্যাটস কন্টেইনার */
-        .stats-container {
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            margin-top: 10px;
-            color: #b32d6e;
-            font-size: 13px;
+        /* ইতিহাস সেকশন */
+        .history-section {
+            background: rgba(255,255,255,0.08);
+            border-radius: 28px;
+            padding: 20px;
+            margin-top: 24px;
+            backdrop-filter: blur(10px);
+        }
+
+        .history-title {
+            font-size: 18px;
             font-weight: 600;
-            padding-top: 8px;
-            border-top: 1px solid rgba(255,100,150,0.4);
-        }
-
-        .stats-left {
+            margin-bottom: 12px;
             display: flex;
-            gap: 12px;
-        }
-
-        .stats-right {
-            display: flex;
+            align-items: center;
             gap: 8px;
-            color: #c23b78;
         }
 
-        .stat-item {
+        .history-list {
+            max-height: 250px;
+            overflow-y: auto;
+        }
+
+        .history-item {
+            padding: 10px 0;
+            border-bottom: 1px solid rgba(255,255,255,0.1);
+            font-size: 13px;
             display: flex;
-            align-items: center;
-            gap: 4px;
+            justify-content: space-between;
         }
 
-        /* ভিআইপি ব্যানার - নিয়ন গ্লো - সাদা ব্যাকগ্রাউন্ডের জন্য */
-        .vip-banner-premium {
-            background: linear-gradient(145deg, #fff0f5, #ffe0f0);
-            border: 2px solid #ff66aa;
-            border-radius: 30px;
-            margin: 35px 0;
-            padding: 28px 20px;
-            position: relative;
-            overflow: hidden;
-            cursor: pointer;
-            box-shadow: 0 0 40px rgba(255,50,100,0.2);
+        .pending {
+            color: #fbbf24;
         }
 
-        .vip-banner-premium::before {
-            content: '';
-            position: absolute;
-            top: -30%;
-            left: -30%;
-            width: 160%;
-            height: 160%;
-            background: radial-gradient(circle, rgba(255,68,136,0.2) 0%, transparent 70%);
-            animation: rotate 15s linear infinite;
+        .approved {
+            color: #10b981;
         }
 
-        @keyframes rotate {
-            0% { transform: rotate(0deg); }
-            100% { transform: rotate(360deg); }
+        .rejected {
+            color: #ef4444;
         }
 
-        .vip-glow-text {
-            font-size: 32px;
-            font-weight: 900;
-            background: linear-gradient(45deg, #FFD700, #FFA500, #FF69B4);
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
-            text-shadow: 0 0 20px rgba(255,215,0,0.3);
-            position: relative;
-            z-index: 2;
-        }
-
-        /* কালারফুল ক্যাটাগরি বাটন */
-        .category-pills {
-            display: flex;
-            gap: 12px;
-            overflow-x: auto;
-            padding: 8px 0 15px;
-            margin-bottom: 5px;
-        }
-
-        .pill {
-            padding: 14px 28px;
-            border-radius: 50px;
-            font-weight: 800;
-            font-size: 15px;
-            white-space: nowrap;
-            background: rgba(255, 245, 250, 0.9);
-            backdrop-filter: blur(10px);
-            border: 1.5px solid;
-            transition: 0.2s;
-            cursor: pointer;
-            text-transform: uppercase;
-            letter-spacing: 1.5px;
-        }
-
-        .pill:nth-child(1) { border-color: #ff3366; color: #b8004f; text-shadow: 0 0 4px #ff99bb; }
-        .pill:nth-child(2) { border-color: #33ccff; color: #0066aa; text-shadow: 0 0 4px #aaffff; }
-        .pill:nth-child(3) { border-color: #ffcc33; color: #aa7700; text-shadow: 0 0 4px #ffdd88; }
-        .pill:nth-child(4) { border-color: #9933ff; color: #5500aa; text-shadow: 0 0 4px #cc99ff; }
-        .pill:nth-child(5) { border-color: #ff6699; color: #c2185b; text-shadow: 0 0 4px #ffaacc; }
-        .pill:nth-child(6) { border-color: #00ff99; color: #008866; text-shadow: 0 0 4px #88ffcc; }
-
-        .pill:hover {
-            background: rgba(255,20,80,0.15);
-            transform: scale(1.05);
-            box-shadow: 0 0 15px currentColor;
-        }
-
-        /* হট লিংক প্রিমিয়াম */
-        .hot-links-premium {
-            display: flex;
-            flex-wrap: wrap;
-            gap: 14px;
-            margin: 35px 0 25px;
-        }
-
-        .hot-link-item {
-            flex: 1 1 40%;
-            background: linear-gradient(145deg, #ffeef4, #ffe0eb);
-            padding: 18px 10px;
-            border-radius: 22px;
-            text-align: center;
-            font-weight: 800;
-            border-bottom: 5px solid #ff66aa;
-            cursor: pointer;
-            transition: 0.2s;
-            color: #a1225a;
-            text-shadow: 0 0 4px #ffbbdd;
-            letter-spacing: 1px;
-            box-shadow: 0 5px 12px rgba(0,0,0,0.05);
-        }
-
-        .hot-link-item:hover {
-            background: #ffe0f0;
-            border-bottom-width: 8px;
-            transform: scale(0.98);
-        }
-
-        /* ফ্লুরোসেন্ট ফুটার */
-        .fluo-footer {
-            text-align: center;
-            margin-top: 50px;
-            padding: 25px;
-            background: rgba(250, 240, 245, 0.9);
-            backdrop-filter: blur(10px);
-            border-radius: 40px;
-            border: 1px solid rgba(255,0,170,0.3);
-            color: #b33b6e;
-            font-size: 12px;
-            font-weight: 600;
-            letter-spacing: 2px;
-        }
-
-        /* কাস্টম স্ক্রলবার */
-        .category-pills::-webkit-scrollbar {
-            height: 4px;
-        }
-        .category-pills::-webkit-scrollbar-thumb {
-            background: linear-gradient(90deg, #ff0066, #ffcc00);
-            border-radius: 10px;
-        }
-
-        /* লাইভ ইন্ডিকেটর */
-        .live-badge {
-            background: red;
-            padding: 4px 12px;
-            border-radius: 40px;
-            font-weight: 900;
-            font-size: 12px;
-            border: 1px solid white;
-            animation: pulse 1.5s infinite;
-            color: white;
-        }
-
-        @keyframes pulse {
-            0% { opacity: 1; }
-            50% { opacity: 0.7; }
-            100% { opacity: 1; }
-        }
-
-        /* লোডিং ওভারলে - সাদা থিম */
         .loading-overlay {
             position: fixed;
             top: 0;
             left: 0;
             width: 100%;
             height: 100%;
-            background: rgba(255,255,255,0.98);
-            backdrop-filter: blur(15px);
+            background: #0f172a;
             display: flex;
             align-items: center;
             justify-content: center;
-            z-index: 10000;
+            z-index: 1000;
             flex-direction: column;
-            gap: 20px;
+            gap: 16px;
         }
 
-        .loading-spinner {
-            width: 60px;
-            height: 60px;
-            border: 5px solid #ff99cc;
-            border-top-color: #ff3388;
+        .spinner {
+            width: 50px;
+            height: 50px;
+            border: 4px solid rgba(255,255,255,0.2);
+            border-top-color: #ec489a;
             border-radius: 50%;
             animation: spin 1s linear infinite;
         }
@@ -487,441 +253,486 @@
             to { transform: rotate(360deg); }
         }
 
-        .loading-text {
-            color: #d40072;
-            font-size: 18px;
-            font-weight: 600;
-            letter-spacing: 2px;
+        .toast-msg {
+            position: fixed;
+            bottom: 30px;
+            left: 20px;
+            right: 20px;
+            background: #1e293b;
+            color: white;
+            text-align: center;
+            padding: 12px;
+            border-radius: 60px;
+            font-size: 14px;
+            z-index: 1100;
+            transition: 0.3s;
+            box-shadow: 0 5px 20px rgba(0,0,0,0.3);
         }
 
-        /* কন্টেন্ট হাইড */
-        .content-hidden {
+        .hidden {
             display: none;
         }
-        
-        /* লাইভ সেকশন কার্ডের জন্য সাদা ব্যাকগ্রাউন্ড টুইক */
-        .live-card-premium {
-            flex: 1; 
-            background: #fff5fa; 
-            border-radius: 28px; 
-            padding: 14px; 
-            border: 1.5px solid #ff88bb; 
-            cursor: pointer;
-            box-shadow: 0 8px 20px rgba(0,0,0,0.05);
+
+        .stat-row {
+            display: flex;
+            justify-content: space-between;
+            margin-top: 16px;
+            font-size: 13px;
+            color: #cbd5e1;
         }
-        
-        /* স্পেশাল ব্যাজার সাদা থিম */
-        .special-card {
-            flex:1; 
-            background: #fff0f8; 
-            padding: 20px; 
-            border-radius: 30px; 
-            border: 1px solid #ff88cc; 
-            cursor: pointer;
-            box-shadow: 0 5px 15px rgba(0,0,0,0.05);
-        }
-        
-        .special-card h3 {
-            color: #a52a6a;
+
+        .badge {
+            background: #f59e0b;
+            padding: 4px 12px;
+            border-radius: 60px;
+            font-size: 11px;
+            font-weight: 600;
         }
     </style>
 </head>
 <body>
-    <!-- লোডিং ওভারলে -->
     <div class="loading-overlay" id="loadingOverlay">
-        <div class="loading-spinner"></div>
-        <div class="loading-text">🔞 লোড হচ্ছে প্রিমিয়াম কন্টেন্ট...</div>
+        <div class="spinner"></div>
+        <div>🔞 লোড হচ্ছে...</div>
     </div>
 
-    <div class="container content-hidden" id="mainContent">
-        <!-- ========== প্রিমিয়াম হেডার ========== -->
-        <div class="premium-header">
-            <div class="vip-badge">💎 VIP PREMIUM</div>
-            <div class="online-counter" id="onlineCounter">
-                <span style="color:#00aa66;">●</span> ৩.৮কে অনলাইন
+    <div class="container hidden" id="mainContent">
+        <!-- ব্যালেন্স কার্ড -->
+        <div class="balance-card">
+            <div class="balance-label">💰 আপনার মোট আয় (USD)</div>
+            <div class="balance-amount" id="balanceAmount">0.0000</div>
+            <div class="per-view">🎬 প্রতি অ্যাড ভিউ = $0.002</div>
+        </div>
+
+        <!-- প্রধান অ্যাড দেখার বাটন -->
+        <button class="watch-ad-btn" id="watchRewardedBtn">
+            ▶️ অ্যাড দেখে আয় করুন
+        </button>
+
+        <!-- ডেইলি বোনাস ও উইথড্র -->
+        <button class="secondary-btn" id="dailyBonusBtn">
+            🎁 ডেইলি বোনাস ($0.05)
+        </button>
+        <button class="secondary-btn" id="withdrawBtn" style="background:#10b981; border:none;">
+            💸 উইথড্র করুন (ন্যূনতম $1.00)
+        </button>
+
+        <div class="stat-row">
+            <span>📊 মোট অ্যাড ভিউ: <span id="totalViews">0</span></span>
+            <span>⏱ কুলডাউন: <span id="cooldownTimer">প্রস্তুত</span></span>
+        </div>
+
+        <!-- পেন্ডিং উইথড্র -->
+        <div class="history-section" style="margin-top: 16px;">
+            <div class="history-title">
+                ⏳ পেন্ডিং উইথড্র রিকোয়েস্ট
+            </div>
+            <div id="pendingWithdrawList">
+                <div class="history-item">কোনো পেন্ডিং রিকোয়েস্ট নেই</div>
             </div>
         </div>
 
-        <!-- ========== হিরো ব্লার কার্ড - আল্ট্রা প্রিমিয়াম ========== -->
-        <div class="hero-premium" id="heroBlur">
-            <div class="hero-img-container">
-                <img src="https://i.ibb.co.com/Xk6JGmP6/dark-theme-of-video-player-window-in-a-night-mode.jpg" alt="premium" onerror="this.src='https://via.placeholder.com/600x400/ffccdd/cc3388?text=PREMIUM+18%2B'">
+        <!-- ইতিহাস -->
+        <div class="history-section">
+            <div class="history-title">
+                📜 লেনদেন ইতিহাস
             </div>
-            <div class="hero-overlay">
-                <div class="play-giant">▶</div>
-                <div class="hero-title-big">UNLOCK NOW</div>
-                <div class="hero-badge-premium">🎬 এক্সক্লুসিভ লিক</div>
-            </div>
-            <div class="hero-stats" id="heroStats">
-                <span style="font-weight:800;">🔥 <span id="heroViews">২.৪</span>এম ভিউ</span>
-                <span>❤️ <span id="heroLikes">৪৮২</span>কে লাইক</span>
-                <span>💬 <span id="heroComments">১২৮</span>কে</span>
+            <div class="history-list" id="historyList">
+                <div class="history-item">✨ স্বাগতম! অ্যাড দেখে আয় শুরু করুন</div>
             </div>
         </div>
 
-        <!-- ========== নিয়ন ক্যাটাগরি পিলস ========== -->
-        <div class="category-pills">
-            <div class="pill" id="pill1">🍑 বাংলা হট</div>
-            <div class="pill" id="pill2">🔞 ইন্ডিয়ান লিক</div>
-            <div class="pill" id="pill3">💦 সেক্সি টিন</div>
-            <div class="pill" id="pill4">🎥 ভাইরাল এমএমএস</div>
-            <div class="pill" id="pill5">👙 অডিও কল</div>
-            <div class="pill" id="pill6">🔥 ৪কে আল্ট্রা</div>
-        </div>
-
-        <!-- ========== ট্রেন্ডিং ভিডিও - ব্লার গ্রিড ========== -->
-        <div class="section-title-premium">
-            <h2>⚡ ট্রেন্ডিং এক্সক্লুসিভ</h2>
-            <span class="view-all" id="viewAllTrending">সবগুলো দেখুন ›</span>
-        </div>
-
-        <div class="blur-grid" id="trendingGrid">
-            <!-- কার্ড ১ -->
-            <div class="blur-card" id="trend1">
-                <div style="position: relative;">
-                    <img class="blur-image" src="https://i.imgur.com/5vzBNBz.jpeg" onerror="this.src='https://via.placeholder.com/300x250/ffccdd/d43377?text=BLUR+1'">
-                    <span class="card-badge">এইচডি</span>
-                </div>
-                <div class="card-title">
-                    <span>🔞 কলেজ লিক</span>
-                    <span style="color:#e68a2e;">★ <span class="rating1">4.8</span></span>
-                </div>
-                <div class="stats-container">
-                    <div class="stats-left">
-                        <span class="stat-item">👁 <span class="view1">৭৮৯</span>কে</span>
-                        <span class="stat-item">❤️ <span class="like1">৫৬</span>কে</span>
-                    </div>
-                    <div class="stats-right">
-                        <span class="stat-item">💬 <span class="comment1">২৩</span>কে</span>
-                        <span class="stat-item">⏱ ২১মি</span>
-                    </div>
-                </div>
-            </div>
-            <!-- কার্ড ২ -->
-            <div class="blur-card" id="trend2">
-                <div style="position: relative;">
-                    <img class="blur-image" src="https://i.imgur.com/ZnFW6E2.jpeg" onerror="this.src='https://via.placeholder.com/300x250/ffccdd/e64c8a?text=BLUR+2'">
-                    <span class="card-badge">নতুন</span>
-                </div>
-                <div class="card-title">
-                    <span>💋 বাসর রাত</span>
-                    <span style="color:#e68a2e;">★ <span class="rating2">4.9</span></span>
-                </div>
-                <div class="stats-container">
-                    <div class="stats-left">
-                        <span class="stat-item">👁 <span class="view2">১.২</span>এম</span>
-                        <span class="stat-item">❤️ <span class="like2">৮৯</span>কে</span>
-                    </div>
-                    <div class="stats-right">
-                        <span class="stat-item">💬 <span class="comment2">৪৫</span>কে</span>
-                        <span class="stat-item">⏱ ৩৪মি</span>
-                    </div>
-                </div>
-            </div>
-            <!-- কার্ড ৩ -->
-            <div class="blur-card" id="trend3">
-                <div style="position: relative;">
-                    <img class="blur-image" src="https://i.imgur.com/UiW5o8Z.jpeg" onerror="this.src='https://via.placeholder.com/300x250/ffccdd/d63b7a?text=BLUR+3'">
-                    <span class="card-badge">ভাইরাল</span>
-                </div>
-                <div class="card-title">
-                    <span>👄 হোটেল রুম</span>
-                    <span style="color:#e68a2e;">★ <span class="rating3">4.7</span></span>
-                </div>
-                <div class="stats-container">
-                    <div class="stats-left">
-                        <span class="stat-item">👁 <span class="view3">৫৬৫</span>কে</span>
-                        <span class="stat-item">❤️ <span class="like3">৪২</span>কে</span>
-                    </div>
-                    <div class="stats-right">
-                        <span class="stat-item">💬 <span class="comment3">১৮</span>কে</span>
-                        <span class="stat-item">⏱ ১৮মি</span>
-                    </div>
-                </div>
-            </div>
-            <!-- কার্ড ৪ -->
-            <div class="blur-card" id="trend4">
-                <div style="position: relative;">
-                    <img class="blur-image" src="https://i.imgur.com/R0XQv0T.jpeg" onerror="this.src='https://via.placeholder.com/300x250/ffccdd/cd2e6e?text=BLUR+4'">
-                    <span class="card-badge">এক্সক্লুসিভ</span>
-                </div>
-                <div class="card-title">
-                    <span>🎭 সেক্রেটারি</span>
-                    <span style="color:#e68a2e;">★ <span class="rating4">4.9</span></span>
-                </div>
-                <div class="stats-container">
-                    <div class="stats-left">
-                        <span class="stat-item">👁 <span class="view4">৯৯২</span>কে</span>
-                        <span class="stat-item">❤️ <span class="like4">৭৩</span>কে</span>
-                    </div>
-                    <div class="stats-right">
-                        <span class="stat-item">💬 <span class="comment4">৩১</span>কে</span>
-                        <span class="stat-item">⏱ ৪২মি</span>
-                    </div>
-                </div>
-            </div>
-            <!-- কার্ড ৫ -->
-            <div class="blur-card" id="trend5">
-                <div style="position: relative;">
-                    <img class="blur-image" src="https://i.imgur.com/sG7QqGh.jpeg" onerror="this.src='https://via.placeholder.com/300x250/ffccdd/cf3b74?text=BLUR+5'">
-                    <span class="card-badge">হট</span>
-                </div>
-                <div class="card-title">
-                    <span>💦 ম্যাসেজ সেন্টার</span>
-                    <span style="color:#e68a2e;">★ <span class="rating5">4.6</span></span>
-                </div>
-                <div class="stats-container">
-                    <div class="stats-left">
-                        <span class="stat-item">👁 <span class="view5">৩৪৫</span>কে</span>
-                        <span class="stat-item">❤️ <span class="like5">২৮</span>কে</span>
-                    </div>
-                    <div class="stats-right">
-                        <span class="stat-item">💬 <span class="comment5">১২</span>কে</span>
-                        <span class="stat-item">⏱ ২৮মি</span>
-                    </div>
-                </div>
-            </div>
-            <!-- কার্ড ৬ -->
-            <div class="blur-card" id="trend6">
-                <div style="position: relative;">
-                    <img class="blur-image" src="https://i.imgur.com/KLh6VhO.jpeg" onerror="this.src='https://via.placeholder.com/300x250/ffccdd/d1447a?text=BLUR+6'">
-                    <span class="card-badge">আল্ট্রা</span>
-                </div>
-                <div class="card-title">
-                    <span>👙 হোস্টেল নাইট</span>
-                    <span style="color:#e68a2e;">★ <span class="rating6">4.8</span></span>
-                </div>
-                <div class="stats-container">
-                    <div class="stats-left">
-                        <span class="stat-item">👁 <span class="view6">৮৮২</span>কে</span>
-                        <span class="stat-item">❤️ <span class="like6">৬৪</span>কে</span>
-                    </div>
-                    <div class="stats-right">
-                        <span class="stat-item">💬 <span class="comment6">২৭</span>কে</span>
-                        <span class="stat-item">⏱ ৩১মি</span>
-                    </div>
-                </div>
-            </div>
-        </div>
-
-        <!-- ========== ভিআইপি ব্যানার - নিয়ন গ্লো ========== -->
-        <div class="vip-banner-premium" id="vipBanner">
-            <div style="position: relative; z-index: 3; text-align: center;">
-                <span style="background: #ffaa00; color: black; padding: 6px 20px; border-radius: 60px; font-weight: 900; letter-spacing: 4px;">👑 লিমিটেড অফার</span>
-                <div class="vip-glow-text" style="margin: 20px 0 15px;">আনলিমিটেড এক্সেস</div>
-                <div style="font-size: 20px; font-weight: 800; background: rgba(255,240,245,0.8); backdrop-filter: blur(5px); padding: 15px; border-radius: 60px; border: 1px solid #ffcc66; color:#a52a6a;">
-                    🚀 ৮০% ছাড় - আজই জয়েন করুন
-                </div>
-                <p style="margin-top: 15px; color: #b34e7a;" id="vipViewer">৬৪২১ জন এই অফার দেখেছেন</p>
-            </div>
-        </div>
-
-        <!-- ========== লাইভ সেকশন - প্রিমিয়াম ========== -->
-        <div class="section-title-premium">
-            <h2>🔴 লাইভ এখন</h2>
-            <span class="view-all" id="viewAllLive">সকল লাইভ ›</span>
-        </div>
-
-        <div style="display: flex; gap: 18px; margin-bottom: 30px;">
-            <div class="live-card-premium" id="live1">
-                <div style="position: relative;">
-                    <img src="https://i.imgur.com/jUvXU8r.jpeg" style="width:100%; height:120px; object-fit:cover; border-radius: 20px; filter: blur(9px);" onerror="this.src='https://via.placeholder.com/200x150/ffccdd/cc4488?text=LIVE+BLUR'">
-                    <span class="live-badge" style="position: absolute; top: 8px; left: 12px;">🔴 লাইভ</span>
-                </div>
-                <p style="font-weight: 800; margin-top: 12px; font-size: 16px; color:#a1225a;">হট জেসিকা</p>
-                <div style="display: flex; justify-content: space-between; margin-top: 8px;">
-                    <span style="color: #cc5588;" id="live1Viewers">২.৮কে দেখছে</span>
-                    <span style="color: #dd6699;">❤️ <span id="live1Likes">১২.৪</span>কে</span>
-                </div>
-            </div>
-            <div class="live-card-premium" id="live2">
-                <div style="position: relative;">
-                    <img src="https://i.imgur.com/JH1cVWv.jpeg" style="width:100%; height:120px; object-fit:cover; border-radius: 20px; filter: blur(9px);" onerror="this.src='https://via.placeholder.com/200x150/ffccdd/d4558a?text=LIVE+2'">
-                    <span class="live-badge" style="position: absolute; top: 8px; left: 12px;">🔴 লাইভ</span>
-                </div>
-                <p style="font-weight: 800; margin-top: 12px; font-size: 16px; color:#a1225a;">প্রিয়া এক্স</p>
-                <div style="display: flex; justify-content: space-between; margin-top: 8px;">
-                    <span style="color: #cc5588;" id="live2Viewers">১.৯কে দেখছে</span>
-                    <span style="color: #dd6699;">❤️ <span id="live2Likes">৮.৭</span>কে</span>
-                </div>
-            </div>
-        </div>
-
-        <!-- ========== হট লিংক প্রিমিয়াম ========== -->
-        <div class="hot-links-premium">
-            <div class="hot-link-item" id="hotlink1">🔞 প্রাইভেট কালেকশন</div>
-            <div class="hot-link-item" id="hotlink2">📹 অনুরোধের ভিডিও</div>
-            <div class="hot-link-item" id="hotlink3">👄 অডিও ক্লিপস</div>
-            <div class="hot-link-item" id="hotlink4">📸 নগ্ন ছবি</div>
-            <div class="hot-link-item" id="hotlink5">🎮 ইন্টারঅ্যাকটিভ</div>
-            <div class="hot-link-item" id="hotlink6">💎 ভিআইপি গ্রুপ</div>
-        </div>
-
-        <!-- ========== স্পেশাল ব্যাজার ========== -->
-        <div style="display: flex; gap: 15px; margin: 30px 0;">
-            <div class="special-card" id="special1">
-                <span style="font-size: 30px;">🎁</span>
-                <h3 style="margin: 10px 0;">ফ্রি ট্রায়াল</h3>
-                <span style="color: #cc6699;" id="trialTimer">২৪ ঘন্টা বাকি</span>
-            </div>
-            <div class="special-card" id="special2">
-                <span style="font-size: 30px;">💘</span>
-                <h3 style="margin: 10px 0;">ম্যাচমেকিং</h3>
-                <span style="color: #aa66cc;" id="matchCount">১২৩ অনলাইন</span>
-            </div>
-        </div>
-
-        <!-- ========== ফ্লুরোসেন্ট ফুটার ========== -->
-        <div class="fluo-footer">
-            ⚠️ শুধুমাত্র ১৮+ ব্যবহারকারীদের জন্য ।<br>
-            <span style="color: #cc3388;">PREMIUM 18+ • আল্ট্রা এইচডি</span>
+        <div style="text-align: center; font-size: 11px; margin-top: 20px; opacity:0.6;">
+            Adsgram Powered • Telegram Mini App
         </div>
     </div>
+
+    <!-- উইথড্র মডাল -->
+    <div id="withdrawModal" class="modal hidden">
+        <div class="modal-content">
+            <h3>💸 উইথড্র করুন</h3>
+            <p style="text-align: center; margin-bottom: 16px;">আপনার ব্যালেন্স: <strong id="modalBalance">$0.00</strong></p>
+            <input type="text" id="withdrawAmount" placeholder="উইথড্র পরিমাণ (USD)" inputmode="decimal">
+            <select id="paymentMethod">
+                <option value="Bkash">বিকাশ (Bkash)</option>
+                <option value="Nagad">নগদ (Nagad)</option>
+                <option value="Rocket">রকেট (Rocket)</option>
+                <option value="PayPal">PayPal</option>
+            </select>
+            <input type="text" id="paymentAccount" placeholder="পেমেন্ট অ্যাকাউন্ট নম্বর/ইমেইল">
+            <div class="modal-buttons">
+                <button class="confirm-btn" id="confirmWithdraw">কনফার্ম</button>
+                <button class="cancel-btn" id="cancelWithdraw">বাতিল</button>
+            </div>
+        </div>
+    </div>
+
+    <div id="toastMsg" class="toast-msg hidden"></div>
 
     <script>
-        // ========== এড লিংক কালেকশন ==========
-        const AD_LINKS = [
-            "https://otieu.com/4/9429975",
-            "https://otieu.com/4/9717825",
-            "https://otieu.com/4/9446627"
-        ];
+        // ======================== কনফিগারেশন ========================
+        const REWARDED_BLOCK_ID = "int-25417";  // 👈 আপনার Adsgram Rewarded ব্লক আইডি দিন
+        const AD_COOLDOWN_SECONDS = 30; // প্রতি অ্যাডের মধ্যে ৩০ সেকেন্ড কুলডাউন
+        const MIN_WITHDRAW = 1.00;
+        const AD_REWARD = 0.002;
 
-        const loadingOverlay = document.getElementById('loadingOverlay');
-        const mainContent = document.getElementById('mainContent');
-        
-        function showAutoAdsgramAd() {
-            return new Promise((resolve, reject) => {
-                if (typeof Adsgram === 'undefined') {
-                    console.log('⚠️ Adsgram SDK লোড হয়নি, সরাসরি কন্টেন্ট দেখানো হচ্ছে');
-                    resolve(true);
-                    return;
-                }
+        // ======================== ইউজার ডাটা ========================
+        let userData = {
+            balance: 0,
+            totalViews: 0,
+            history: [],
+            withdrawRequests: [],  // { id, amount, method, account, status, date }
+            lastAdTime: 0
+        };
+
+        // লোড এবং সেভ
+        function loadUserData() {
+            const saved = localStorage.getItem("adEarningApp_v2");
+            if(saved) {
                 try {
-                    const AdController = Adsgram.init({ blockId: "int-27099" });
-                    AdController.show()
-                        .then(() => {
-                            console.log('✅ Adsgram ad shown successfully (Auto)');
-                            localStorage.setItem('adsgramWatched', Date.now().toString());
-                            resolve(true);
-                        })
-                        .catch((error) => {
-                            console.log('❌ Adsgram ad error:', error);
-                            resolve(false);
-                        });
-                } catch(e) {
-                    console.log('❌ Adsgram init error:', e);
-                    resolve(false);
-                }
-            });
+                    const parsed = JSON.parse(saved);
+                    userData.balance = parsed.balance || 0;
+                    userData.totalViews = parsed.totalViews || 0;
+                    userData.history = parsed.history || [];
+                    userData.withdrawRequests = parsed.withdrawRequests || [];
+                    userData.lastAdTime = parsed.lastAdTime || 0;
+                } catch(e) {}
+            }
+            updateUI();
+            renderHistory();
+            renderPendingWithdraws();
         }
-        
-        function handleUserClick(redirectUrl) {
-            if (typeof Adsgram !== 'undefined') {
-                try {
-                    const AdController = Adsgram.init({ blockId: "int-25417" });
-                    AdController.show()
-                        .then(() => {
-                            console.log('✅ Adsgram ad shown (click)');
-                            setTimeout(() => { window.location.href = redirectUrl; }, 100);
-                        })
-                        .catch((error) => {
-                            console.log('❌ Adsgram error:', error);
-                            window.location.href = redirectUrl;
-                        });
-                } catch(e) {
-                    console.log('❌ Adsgram init error:', e);
-                    window.location.href = redirectUrl;
-                }
+
+        function saveUserData() {
+            localStorage.setItem("adEarningApp_v2", JSON.stringify({
+                balance: userData.balance,
+                totalViews: userData.totalViews,
+                history: userData.history.slice(0, 50),
+                withdrawRequests: userData.withdrawRequests,
+                lastAdTime: userData.lastAdTime
+            }));
+        }
+
+        function addToHistory(text, amount = null, type = "earning") {
+            const time = new Date().toLocaleString();
+            let entry = { time, text, type };
+            if(amount !== null) {
+                entry.amount = amount;
+                entry.text = `${text} +$${amount.toFixed(4)}`;
+            }
+            userData.history.unshift(entry);
+            if(userData.history.length > 50) userData.history.pop();
+            saveUserData();
+            renderHistory();
+        }
+
+        // শুধুমাত্র অ্যাড সফলভাবে দেখলেই টাকা যোগ হবে
+        function addEarning(amount, reason) {
+            userData.balance += amount;
+            userData.totalViews += 1;
+            userData.balance = parseFloat(userData.balance.toFixed(6));
+            saveUserData();
+            updateUI();
+            addToHistory(reason, amount, "earning");
+            showToast(`✅ +$${amount.toFixed(4)} ${reason}`);
+        }
+
+        function updateUI() {
+            document.getElementById("balanceAmount").innerText = userData.balance.toFixed(4);
+            document.getElementById("totalViews").innerText = userData.totalViews;
+        }
+
+        function renderHistory() {
+            const historyDiv = document.getElementById("historyList");
+            if(userData.history.length === 0) {
+                historyDiv.innerHTML = '<div class="history-item">কোনো লেনদেন নেই</div>';
+                return;
+            }
+            historyDiv.innerHTML = userData.history.map(item => `
+                <div class="history-item">
+                    <span>${item.text}</span>
+                    <span style="font-size:11px;">${item.time}</span>
+                </div>
+            `).join('');
+        }
+
+        function renderPendingWithdraws() {
+            const pendingDiv = document.getElementById("pendingWithdrawList");
+            const pending = userData.withdrawRequests.filter(r => r.status === "pending");
+            if(pending.length === 0) {
+                pendingDiv.innerHTML = '<div class="history-item">কোনো পেন্ডিং রিকোয়েস্ট নেই</div>';
+                return;
+            }
+            pendingDiv.innerHTML = pending.map(req => `
+                <div class="history-item">
+                    <span>💰 $${req.amount.toFixed(2)} - ${req.method}</span>
+                    <span class="pending">⏳ পেন্ডিং</span>
+                </div>
+            `).join('');
+        }
+
+        function showToast(msg) {
+            const toast = document.getElementById("toastMsg");
+            toast.innerText = msg;
+            toast.classList.remove("hidden");
+            setTimeout(() => {
+                toast.classList.add("hidden");
+            }, 3000);
+        }
+
+        // ======================== কুলডাউন চেক ========================
+        function isCooldownActive() {
+            const now = Date.now();
+            const timeSinceLastAd = (now - userData.lastAdTime) / 1000;
+            return timeSinceLastAd < AD_COOLDOWN_SECONDS;
+        }
+
+        function getRemainingCooldown() {
+            const now = Date.now();
+            const elapsed = (now - userData.lastAdTime) / 1000;
+            const remaining = AD_COOLDOWN_SECONDS - elapsed;
+            return remaining > 0 ? Math.ceil(remaining) : 0;
+        }
+
+        function updateCooldownTimer() {
+            const timerElement = document.getElementById("cooldownTimer");
+            if(isCooldownActive()) {
+                const remaining = getRemainingCooldown();
+                timerElement.innerHTML = `${remaining} সেকেন্ড বাকি`;
+                timerElement.style.color = "#fbbf24";
             } else {
-                window.location.href = redirectUrl;
+                timerElement.innerHTML = "✅ প্রস্তুত";
+                timerElement.style.color = "#10b981";
             }
         }
-        
-        function getRandomAdLink() {
-            return AD_LINKS[Math.floor(Math.random() * AD_LINKS.length)];
+
+        setInterval(updateCooldownTimer, 1000);
+
+        // ======================== Adsgram অ্যাড (সফল হলেই টাকা) ========================
+        function showRewardedAd() {
+            return new Promise((resolve, reject) => {
+                // কুলডাউন চেক
+                if(isCooldownActive()) {
+                    const remaining = getRemainingCooldown();
+                    showToast(`⏱ অনুগ্রহ করে ${remaining} সেকেন্ড অপেক্ষা করুন`);
+                    reject("Cooldown active");
+                    return;
+                }
+
+                if(typeof Adsgram === "undefined") {
+                    showToast("❌ Adsgram SDK লোড হয়নি");
+                    reject("SDK not loaded");
+                    return;
+                }
+                
+                try {
+                    const adController = Adsgram.init({ 
+                        blockId: REWARDED_BLOCK_ID,
+                        debug: true
+                    });
+                    
+                    adController.show().then(() => {
+                        console.log("✅ অ্যাড সম্পূর্ণ দেখেছে - টাকা যোগ করা হচ্ছে");
+                        // ✅ অ্যাড সম্পূর্ণ দেখার পরই টাকা যোগ হবে
+                        userData.lastAdTime = Date.now();
+                        addEarning(AD_REWARD, "📺 রিওয়ার্ডেড অ্যাড ভিউ");
+                        saveUserData();
+                        resolve(true);
+                    }).catch((error) => {
+                        console.log("❌ অ্যাড দেখতে ব্যর্থ বা স্কিপ করেছে:", error);
+                        // ❌ অ্যাড না দেখলে বা স্কিপ করলে টাকা যোগ হবে না
+                        showToast("⚠️ অ্যাড সম্পূর্ণ দেখুন তবেই আয় পাবেন!");
+                        reject(error);
+                    });
+                } catch(e) {
+                    console.error("Adsgram init error:", e);
+                    showToast("❌ অ্যাড লোড করতে সমস্যা হয়েছে");
+                    reject(e);
+                }
+            });
         }
+
+        // ======================== ডেইলি বোনাস ========================
+        function claimDailyBonus() {
+            const lastBonus = localStorage.getItem("lastBonusDate");
+            const today = new Date().toDateString();
+            if(lastBonus === today) {
+                showToast("❌ আজকে বোনাস নেওয়া হয়েছে! কাল আবার আসুন।");
+                return false;
+            }
+            userData.balance += 0.05;
+            userData.balance = parseFloat(userData.balance.toFixed(6));
+            saveUserData();
+            updateUI();
+            addToHistory("🎁 ডেইলি বোনাস", 0.05, "bonus");
+            localStorage.setItem("lastBonusDate", today);
+            showToast("🎁 +$0.05 ডেইলি বোনাস!");
+            return true;
+        }
+
+        // ======================== এডভান্সড উইথড্র সিস্টেম ========================
+        function openWithdrawModal() {
+            if(userData.balance < MIN_WITHDRAW) {
+                showToast(`ন্যূনতম উইথড্র $${MIN_WITHDRAW}। আপনার ব্যালেন্স: $${userData.balance.toFixed(4)}`);
+                return;
+            }
+            document.getElementById("modalBalance").innerText = `$${userData.balance.toFixed(4)}`;
+            document.getElementById("withdrawAmount").value = "";
+            document.getElementById("paymentAccount").value = "";
+            document.getElementById("withdrawModal").classList.remove("hidden");
+        }
+
+        function submitWithdrawRequest() {
+            let amount = parseFloat(document.getElementById("withdrawAmount").value);
+            const method = document.getElementById("paymentMethod").value;
+            const account = document.getElementById("paymentAccount").value.trim();
+
+            // ভ্যালিডেশন
+            if(isNaN(amount) || amount <= 0) {
+                showToast("সঠিক পরিমাণ লিখুন");
+                return;
+            }
+            if(amount < MIN_WITHDRAW) {
+                showToast(`ন্যূনতম উইথড্র $${MIN_WITHDRAW}`);
+                return;
+            }
+            if(amount > userData.balance) {
+                showToast("ব্যালেন্সের চেয়ে বেশি উইথড্র করতে পারবেন না");
+                return;
+            }
+            if(account === "") {
+                showToast("পেমেন্ট অ্যাকাউন্ট দিন");
+                return;
+            }
+
+            // উইথড্র রিকোয়েস্ট তৈরি
+            const requestId = "WD_" + Date.now() + "_" + Math.floor(Math.random() * 10000);
+            const newRequest = {
+                id: requestId,
+                amount: amount,
+                method: method,
+                account: account,
+                status: "pending",
+                date: new Date().toISOString()
+            };
+
+            userData.withdrawRequests.push(newRequest);
+            userData.balance -= amount;
+            userData.balance = parseFloat(userData.balance.toFixed(6));
+            saveUserData();
+            updateUI();
+            addToHistory(`💸 উইথড্র রিকোয়েস্ট: $${amount.toFixed(2)} (${method}) - পেন্ডিং`, amount, "withdraw");
+            renderPendingWithdraws();
+
+            // মডাল বন্ধ
+            document.getElementById("withdrawModal").classList.add("hidden");
+            showToast(`✅ $${amount.toFixed(2)} উইথড্র রিকোয়েস্ট পাঠানো হয়েছে! অ্যাডমিন অ্যাপ্রুভ করবে।`);
+
+            // টেলিগ্রাম নোটিফিকেশন (যদি মিনি অ্যাপে থাকে)
+            if(window.Telegram && Telegram.WebApp) {
+                Telegram.WebApp.showAlert(`$${amount.toFixed(2)} উইথড্র রিকোয়েস্ট গৃহীত হয়েছে!`);
+            }
+
+            // অ্যাডমিনের জন্য কনসোলে লগ (প্রোডাকশনে ব্যাকএন্ডে পাঠানো ভালো)
+            console.log("🔔 নতুন উইথড্র রিকোয়েস্ট:", newRequest);
+        }
+
+        // অ্যাডমিন ফাংশন (উইথড্র অ্যাপ্রুভ/রিজেক্ট - ডেমোর জন্য কনসোলে)
+        // রিয়েল প্রজেক্টে এগুলো ব্যাকএন্ড API দিয়ে করবেন
+        window.approveWithdraw = function(requestId) {
+            const request = userData.withdrawRequests.find(r => r.id === requestId);
+            if(request && request.status === "pending") {
+                request.status = "approved";
+                saveUserData();
+                addToHistory(`✅ উইথড্র অনুমোদিত: $${request.amount.toFixed(2)}`, null, "withdraw");
+                renderPendingWithdraws();
+                renderHistory();
+                console.log(`✅ Withdraw ${requestId} approved`);
+            }
+        };
+
+        window.rejectWithdraw = function(requestId) {
+            const request = userData.withdrawRequests.find(r => r.id === requestId);
+            if(request && request.status === "pending") {
+                request.status = "rejected";
+                // ব্যালেন্স ফেরত দিন
+                userData.balance += request.amount;
+                userData.balance = parseFloat(userData.balance.toFixed(6));
+                saveUserData();
+                updateUI();
+                addToHistory(`❌ উইথড্র বাতিল: $${request.amount.toFixed(2)} (ব্যালেন্স ফেরত)`, null, "withdraw");
+                renderPendingWithdraws();
+                renderHistory();
+                console.log(`❌ Withdraw ${requestId} rejected`);
+            }
+        };
+
+        // ======================== টেলিগ্রাম ও লোডিং ========================
+        function initTelegramApp() {
+            if(window.Telegram && Telegram.WebApp) {
+                const webApp = Telegram.WebApp;
+                webApp.ready();
+                webApp.expand();
+                webApp.setHeaderColor("bg_color");
+                webApp.setBackgroundColor("#0f172a");
+            }
+        }
+
+        // অনলাইন কাউন্ট
+        function updateOnlineCount() {
+            const randomOnline = Math.floor(Math.random() * 300) + 80;
+            const onlineElem = document.getElementById("onlineCount");
+            if(onlineElem) onlineElem.innerText = randomOnline;
+        }
+        setInterval(updateOnlineCount, 8000);
         
-        window.addEventListener('load', async function() {
-            console.log('📄 পেজ লোড হয়েছে, Adsgram অটো-শো শুরু হচ্ছে...');
-            await showAutoAdsgramAd();
+        // ======================== ইভেন্ট লিসেনার ========================
+        async function onWatchRewarded() {
+            const btn = document.getElementById("watchRewardedBtn");
+            btn.disabled = true;
+            btn.innerText = "⏳ অ্যাড লোড হচ্ছে...";
+            
+            try {
+                await showRewardedAd();
+            } catch(e) {
+                console.log("Ad failed", e);
+                // টাকা যোগ হবে না - আগেই handled
+            } finally {
+                btn.disabled = false;
+                btn.innerText = "▶️ অ্যাড দেখে আয় করুন";
+                updateCooldownTimer();
+            }
+        }
+
+        // পেজ লোড
+        window.addEventListener("load", async () => {
+            loadUserData();
+            initTelegramApp();
+            updateOnlineCount();
+            
             setTimeout(() => {
-                loadingOverlay.style.display = 'none';
-                mainContent.classList.remove('content-hidden');
-                console.log('✅ কন্টেন্ট দেখা যাচ্ছে');
-                generateRealisticStats();
-                startAutoStatsUpdate();
-            }, 1000);
+                document.getElementById("loadingOverlay").style.display = "none";
+                document.getElementById("mainContent").classList.remove("hidden");
+            }, 800);
+            
+            document.getElementById("watchRewardedBtn").addEventListener("click", onWatchRewarded);
+            document.getElementById("dailyBonusBtn").addEventListener("click", claimDailyBonus);
+            document.getElementById("withdrawBtn").addEventListener("click", openWithdrawModal);
+            document.getElementById("confirmWithdraw").addEventListener("click", submitWithdrawRequest);
+            document.getElementById("cancelWithdraw").addEventListener("click", () => {
+                document.getElementById("withdrawModal").classList.add("hidden");
+            });
+            
+            // মডালের বাইরে ক্লিক করলে বন্ধ
+            document.getElementById("withdrawModal").addEventListener("click", (e) => {
+                if(e.target === document.getElementById("withdrawModal")) {
+                    document.getElementById("withdrawModal").classList.add("hidden");
+                }
+            });
         });
         
-        function generateRealisticStats() {
-            try {
-                if(document.getElementById('heroViews')) document.getElementById('heroViews').innerHTML = (Math.random() * 3 + 1.8).toFixed(1);
-                if(document.getElementById('heroLikes')) document.getElementById('heroLikes').innerHTML = Math.floor(Math.random() * 300 + 350);
-                if(document.getElementById('heroComments')) document.getElementById('heroComments').innerHTML = Math.floor(Math.random() * 80 + 100);
-                const views = ['.view1', '.view2', '.view3', '.view4', '.view5', '.view6'];
-                const likes = ['.like1', '.like2', '.like3', '.like4', '.like5', '.like6'];
-                const comments = ['.comment1', '.comment2', '.comment3', '.comment4', '.comment5', '.comment6'];
-                const ratings = ['.rating1', '.rating2', '.rating3', '.rating4', '.rating5', '.rating6'];
-                for(let i = 0; i < views.length; i++) {
-                    const viewEl = document.querySelector(views[i]);
-                    const likeEl = document.querySelector(likes[i]);
-                    const commentEl = document.querySelector(comments[i]);
-                    const ratingEl = document.querySelector(ratings[i]);
-                    if(viewEl) viewEl.innerHTML = Math.floor(Math.random() * 300 + 500);
-                    if(likeEl) likeEl.innerHTML = Math.floor(Math.random() * 50 + 30);
-                    if(commentEl) commentEl.innerHTML = Math.floor(Math.random() * 30 + 15);
-                    if(ratingEl) ratingEl.innerHTML = (Math.random() * 0.5 + 4.5).toFixed(1);
-                }
-                if(document.getElementById('live1Viewers')) document.getElementById('live1Viewers').innerHTML = (Math.random() * 2 + 1.8).toFixed(1) + 'কে দেখছে';
-                if(document.getElementById('live1Likes')) document.getElementById('live1Likes').innerHTML = (Math.random() * 5 + 10).toFixed(1);
-                if(document.getElementById('live2Viewers')) document.getElementById('live2Viewers').innerHTML = (Math.random() * 1.5 + 1.2).toFixed(1) + 'কে দেখছে';
-                if(document.getElementById('live2Likes')) document.getElementById('live2Likes').innerHTML = (Math.random() * 4 + 7).toFixed(1);
-                const online = Math.floor(Math.random() * 2000 + 3000);
-                if(document.getElementById('onlineCounter')) document.getElementById('onlineCounter').innerHTML = `<span style="color:#00aa66;">●</span> ${online.toLocaleString()} অনলাইন`;
-                const vipViews = Math.floor(Math.random() * 3000 + 5000);
-                if(document.getElementById('vipViewer')) document.getElementById('vipViewer').innerHTML = `${vipViews.toLocaleString()} জন এই অফার দেখেছেন`;
-                const hours = Math.floor(Math.random() * 12 + 18);
-                const minutes = Math.floor(Math.random() * 60);
-                if(document.getElementById('trialTimer')) document.getElementById('trialTimer').innerHTML = `${hours} ঘন্টা ${minutes} মিনিট বাকি`;
-                const matchOnline = Math.floor(Math.random() * 200 + 80);
-                if(document.getElementById('matchCount')) document.getElementById('matchCount').innerHTML = `${matchOnline} অনলাইন`;
-            } catch(e) { console.log('স্ট্যাটস আপডেটে ত্রুটি:', e); }
-        }
-        
-        function startAutoStatsUpdate() {
-            setInterval(generateRealisticStats, 5000);
-            setInterval(function() {
-                if(document.getElementById('live1Viewers')) document.getElementById('live1Viewers').innerHTML = (Math.random() * 2.5 + 1.5).toFixed(1) + 'কে দেখছে';
-                if(document.getElementById('live2Viewers')) document.getElementById('live2Viewers').innerHTML = (Math.random() * 2 + 1.0).toFixed(1) + 'কে দেখছে';
-                if(document.getElementById('heroViews')) document.getElementById('heroViews').innerHTML = (Math.random() * 2 + 2.2).toFixed(1);
-            }, 2000);
-        }
-        
-        function addClickListeners() {
-            const clickElements = [
-                'heroBlur', 'pill1', 'pill2', 'pill3', 'pill4', 'pill5', 'pill6',
-                'trend1', 'trend2', 'trend3', 'trend4', 'trend5', 'trend6',
-                'viewAllTrending', 'viewAllLive', 'vipBanner', 'live1', 'live2',
-                'hotlink1', 'hotlink2', 'hotlink3', 'hotlink4', 'hotlink5', 'hotlink6',
-                'special1', 'special2'
-            ];
-            clickElements.forEach(id => {
-                const el = document.getElementById(id);
-                if(el && !el.hasClickListener) {
-                    el.addEventListener('click', function() { handleUserClick(getRandomAdLink()); });
-                    el.hasClickListener = true;
-                }
-            });
-            document.querySelectorAll('img').forEach(img => {
-                if(!img.hasClickListener) {
-                    img.addEventListener('click', function(e) { e.stopPropagation(); handleUserClick(getRandomAdLink()); });
-                    img.hasClickListener = true;
-                }
-            });
-        }
-        
-        setTimeout(() => { addClickListeners(); }, 1500);
-        console.log('✅ অটো Adsgram সিস্টেম সক্রিয় - পেজ লোডের সাথে সাথেই বিজ্ঞাপন দেখাবে');
+        console.log("✅ অ্যাডসগ্রাম সিস্টেম: অ্যাড সম্পূর্ণ দেখলেই টাকা যাবে");
+        console.log("✅ উইথড্র সিস্টেম: পেন্ডিং রিকোয়েস্ট, অ্যাডমিন কনসোলে approveWithdraw() / rejectWithdraw() ব্যবহার করবেন");
     </script>
 </body>
 </html>
